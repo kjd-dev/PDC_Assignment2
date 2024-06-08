@@ -6,6 +6,6 @@ package QuizGUI;
  */
 public class Model {
     
-   
+    
 
 }

@@ -103,11 +103,13 @@ public class View2 extends JFrame implements Observer{
         jPanel3.setBackground(new java.awt.Color(230, 236, 237));
 
         usernameField.setBackground(new java.awt.Color(230, 236, 237));
+        usernameField.setForeground(new java.awt.Color(168, 173, 173));
         usernameField.setText("Username");
         usernameField.setToolTipText("");
         usernameField.setBorder(null);
 
         passwordField.setBackground(new java.awt.Color(230, 236, 237));
+        passwordField.setForeground(new java.awt.Color(168, 173, 173));
         passwordField.setText("Password");
         passwordField.setBorder(null);
 
@@ -131,8 +133,9 @@ public class View2 extends JFrame implements Observer{
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("AppleGothic", 2, 10)); // NOI18N
-        jLabel1.setText("A new profile will be created if you do not already");
+        jLabel1.setFont(new java.awt.Font("AppleGothic", 2, 9)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(134, 138, 138));
+        jLabel1.setText("A new profile will be created if you do not");
 
         jLabel2.setBackground(new java.awt.Color(187, 187, 187));
         jLabel2.setFont(new java.awt.Font("AppleGothic", 1, 36)); // NOI18N
@@ -143,15 +146,16 @@ public class View2 extends JFrame implements Observer{
         jLabel3.setForeground(new java.awt.Color(168, 173, 173));
         jLabel3.setText("by James & Tui");
 
-        jLabel5.setFont(new java.awt.Font("AppleGothic", 2, 10)); // NOI18N
-        jLabel5.setText("have one");
+        jLabel5.setFont(new java.awt.Font("AppleGothic", 2, 9)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(134, 138, 138));
+        jLabel5.setText("already have one");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+                .addContainerGap(86, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(usernameIcon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passwordIcon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -195,7 +199,7 @@ public class View2 extends JFrame implements Observer{
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addGap(0, 0, 0)
                 .addComponent(jLabel5)

@@ -12,7 +12,7 @@ public class Controller implements ActionListener {
     public View2 view;
     public Model model;
     
-    public Controller(View2 view)
+    public Controller(View2 view, Model model)
     {
         this.view = view;
         this.model = model;
@@ -28,7 +28,6 @@ public class Controller implements ActionListener {
             case "Log in":
                 String username = this.view.getUsername();
                 String password = this.view.getPassword();
-                System.out.println(username + ", " + password);
                 break;
         }
     }

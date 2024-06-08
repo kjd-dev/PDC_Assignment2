@@ -10,6 +10,7 @@ public class Main
         
         View2 view = new View2();
         view.setVisible(true);
-        Controller controller = new Controller(view);
+        Model model = new Model();
+        Controller controller = new Controller(view, model);
     }
 }
