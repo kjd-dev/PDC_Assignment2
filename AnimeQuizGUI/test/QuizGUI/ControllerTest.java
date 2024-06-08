@@ -18,6 +18,8 @@ import static org.junit.Assert.*;
  */
 public class ControllerTest {
     
+    private int errors = 0;
+    
     public ControllerTest() {
     }
     
@@ -40,15 +42,27 @@ public class ControllerTest {
     /**
      * Test of actionPerformed method, of class Controller.
      */
+    
+    public void testLogin()
+    {
+        View2 view = new View2();
+        view.setVisible(true);
+        Model model = new Model();
+        Controller controller = new Controller(view, model);
+    }
+    
     @Test
     public void testActionPerformed() 
     {
-        System.out.println("actionPerformed");
-        ActionEvent e = null;
-        Controller instance = null;
-        instance.actionPerformed(e);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ControllerTest test = new ControllerTest();
+        try {
+            test.testLogin();
+        }
+        catch(Throwable e)
+        {
+            test.errors++;
+            throw new RuntimeException("Errors found: " + errors);
+        }
     }
     
 }

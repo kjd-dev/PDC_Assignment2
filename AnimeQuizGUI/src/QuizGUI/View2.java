@@ -23,6 +23,7 @@ public class View2 extends JFrame implements Observer{
         initComponents();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        setVisible(true);
         
     }
     

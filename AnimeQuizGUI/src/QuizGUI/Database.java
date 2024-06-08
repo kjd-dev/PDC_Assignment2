@@ -43,7 +43,7 @@ public class Database
         }
         catch (Throwable e) 
         {
-            System.out.println("Error has been detected!");
+            e.printStackTrace();
         }
     }
     
@@ -60,8 +60,8 @@ public class Database
         try 
         {
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT Users, Password, High_score FROM USERS " +
-                                                  "WHERE Users = '" + username + "'");
+            ResultSet rs = statement.executeQuery("SELECT Username, Password, High_score FROM USERS " +
+                                                  "WHERE Username = '" + username + "'");
             if (rs.next()) 
             {
                 String pass = rs.getString("Password");
@@ -90,16 +90,16 @@ public class Database
                  * create a new account by using the inputted username and
                  * password.
                  */
-                
-                System.out.println("This user does not exist within the database!");
-                statement.executeUpdate("INSERT INTO USERS " + "VALUES('" + username + "', '" + password + "', 0)");
+                statement.executeUpdate("INSERT INTO USERS "
+                        + "VALUES('" + username + "', '" + password + "', 0)");
                 data.currentScore = 0;
                 data.loginFlag = true;
+                
             }
         }
         catch (SQLException ex) 
         {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
         
         return data; //Back to checkName() of Model.java.
@@ -108,37 +108,27 @@ public class Database
     private boolean checkTableExisting(String newTableName) 
     {
         boolean flag = false;
-        
-        try 
-        {
-
-            System.out.println("Checking if there is an existing tables.... ");
+        try {
+            System.out.println("Checking existing tables...");
             String[] types = {"TABLE"};
             DatabaseMetaData dbmd = conn.getMetaData();
-            ResultSet rsDBMeta = dbmd.getTables(null, null, null, null);//types);
-            //Statement dropStatement=null;
             
-            while (rsDBMeta.next()) 
-            {
-                String tableName = rsDBMeta.getString("TABLE_NAME");
-                
-                if (tableName.compareToIgnoreCase(newTableName) == 0) 
-                {
-                    System.out.println(tableName + "  is there");
-                    flag = true;
+            try (ResultSet rsDBMeta = dbmd.getTables(null, null, newTableName.toUpperCase(), types)) {
+                while (rsDBMeta.next()) {
+                    String tableName = rsDBMeta.getString("TABLE_NAME");
+                    if (tableName.equalsIgnoreCase(newTableName)) {
+                        System.out.println(tableName + " already exists");
+                        flag = true;
+                        break;
+                    }
                 }
             }
-            if (rsDBMeta != null) 
-            {
-                rsDBMeta.close();
-            }
-        }
-        catch (SQLException ex) 
-        {
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
         return flag;
     }
-
+    
     public void quitGame(int score, String username) 
     {
         Statement statement;

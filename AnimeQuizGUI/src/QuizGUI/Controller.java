@@ -28,6 +28,7 @@ public class Controller implements ActionListener {
             case "Log in":
                 String username = this.view.getUsername();
                 String password = this.view.getPassword();
+                model.checkName(username, password);
                 break;
         }
     }
