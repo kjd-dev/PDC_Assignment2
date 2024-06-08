@@ -8,6 +8,8 @@ public class Main
 {
     public static void main(String[] args) {
         
-        new View2().setVisible(true);
+        View2 view = new View2();
+        view.setVisible(true);
+        Controller controller = new Controller(view);
     }
 }

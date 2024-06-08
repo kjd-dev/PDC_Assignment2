@@ -4,13 +4,16 @@
  */
 package QuizGUI;
 
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  *
  * @author james
  */
-public class View2 extends javax.swing.JFrame {
+public class View2 extends JFrame implements Observer{
 
     /**
      * Creates new form View2
@@ -20,7 +23,30 @@ public class View2 extends javax.swing.JFrame {
         initComponents();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        
     }
+    
+    public String getUsername() 
+    {
+        return usernameField.getText();
+    }
+
+    public String getPassword() 
+    {
+        return new String(passwordField.getPassword());
+    }
+    
+    public void addActionListener(ActionListener listener)
+    {
+        this.loginButton.addActionListener(listener);
+    }
+    
+    @Override
+    public void update(Observable o, Object arg)
+    {
+       
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,7 +69,7 @@ public class View2 extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         usernameIcon = new javax.swing.JLabel();
         passwordIcon = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        loginButton = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
@@ -85,10 +111,15 @@ public class View2 extends javax.swing.JFrame {
 
         passwordIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuizGUI/padlock(1).png"))); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(230, 236, 237));
-        jButton1.setForeground(new java.awt.Color(28, 55, 87));
-        jButton1.setText("Log in");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(28, 55, 87)));
+        loginButton.setBackground(new java.awt.Color(230, 236, 237));
+        loginButton.setForeground(new java.awt.Color(28, 55, 87));
+        loginButton.setText("Log in");
+        loginButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(28, 55, 87)));
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -101,7 +132,7 @@ public class View2 extends javax.swing.JFrame {
                     .addComponent(passwordIcon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(loginButton, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(usernameField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                         .addComponent(passwordField)
@@ -128,7 +159,7 @@ public class View2 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -162,9 +193,14 @@ public class View2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+//        String username = getUsername();
+//        String password = getPassword();
+//        System.out.println(username + password);
+    }//GEN-LAST:event_loginButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
@@ -173,6 +209,7 @@ public class View2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JButton loginButton;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordIcon;
     private javax.swing.JTextField usernameField;
