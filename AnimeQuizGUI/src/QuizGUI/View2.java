@@ -88,7 +88,7 @@ public class View2 extends JFrame implements Observer{
 
         jPanel2.setBackground(new java.awt.Color(110, 137, 153));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuizGUI/LGIN(1)(1).jpg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/LGIN(1)(1).jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -120,9 +120,9 @@ public class View2 extends JFrame implements Observer{
         jSeparator2.setBackground(new java.awt.Color(28, 55, 87));
         jSeparator2.setForeground(new java.awt.Color(28, 55, 87));
 
-        usernameIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuizGUI/user(1).png"))); // NOI18N
+        usernameIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user(1).png"))); // NOI18N
 
-        passwordIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuizGUI/padlock(1).png"))); // NOI18N
+        passwordIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/padlock(1).png"))); // NOI18N
 
         loginButton.setBackground(new java.awt.Color(230, 236, 237));
         loginButton.setForeground(new java.awt.Color(28, 55, 87));
@@ -238,9 +238,7 @@ public class View2 extends JFrame implements Observer{
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-//        String username = getUsername();
-//        String password = getPassword();
-//        System.out.println(username + password);
+
     }//GEN-LAST:event_loginButtonActionPerformed
 
 

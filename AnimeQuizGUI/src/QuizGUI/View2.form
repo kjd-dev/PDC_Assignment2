@@ -105,7 +105,7 @@
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/QuizGUI/LGIN(1)(1).jpg"/>
+                  <Image iconType="3" name="/Images/LGIN(1)(1).jpg"/>
                 </Property>
               </Properties>
             </Component>
@@ -238,14 +238,14 @@
             <Component class="javax.swing.JLabel" name="usernameIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/QuizGUI/user(1).png"/>
+                  <Image iconType="3" name="/Images/user(1).png"/>
                 </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="passwordIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/QuizGUI/padlock(1).png"/>
+                  <Image iconType="3" name="/Images/padlock(1).png"/>
                 </Property>
               </Properties>
             </Component>
