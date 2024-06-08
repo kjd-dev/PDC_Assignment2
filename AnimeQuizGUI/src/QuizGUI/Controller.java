@@ -28,7 +28,7 @@ public class Controller implements ActionListener {
             case "Log in":
                 String username = this.view.getUsername();
                 String password = this.view.getPassword();
-                System.out.println(username + password);
+                System.out.println(username + ", " + password);
                 break;
         }
     }
