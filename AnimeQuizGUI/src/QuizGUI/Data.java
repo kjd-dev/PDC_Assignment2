@@ -15,6 +15,7 @@ public class Data
     boolean loginFlag = false; // Check if the user successfully login the system.
     boolean quitFlag = false; // Check if the user quit the system.
     boolean topicSelectFlag = false; // Check if the user has selected a topic
+    boolean roundSelectFlag = false;
     int currentScore = 0; // Store user's cumulative scores.
     String topicChoice;
 }

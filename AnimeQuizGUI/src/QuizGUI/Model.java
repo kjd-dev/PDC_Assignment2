@@ -91,6 +91,17 @@ public class Model extends Observable
                 break;
             }
         }
+        
+        this.data.topicSelectFlag = true;
+        this.setChanged();
+        this.notifyObservers(this.data);
+    }
+    
+    public void goBack()
+    {
+        this.data.topicSelectFlag = false;
+        this.setChanged();
+        this.notifyObservers(this.data);
     }
     
     public void listRounds()

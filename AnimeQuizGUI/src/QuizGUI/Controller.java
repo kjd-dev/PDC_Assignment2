@@ -30,9 +30,11 @@ public class Controller implements ActionListener {
                 String password = this.view.getPassword();
                 model.checkName(username, password);
                 break;
+                
             case "Select":
                 String topic = this.view.getTopic();
-                if(topic.matches("\\d+"))
+                int topicNumber = Integer.parseInt(topic);
+                if(topic.matches("\\d+") &&  inBoundsTopic(topicNumber))
                 {
                     model.selectTopic(topic);
                 }
@@ -40,6 +42,48 @@ public class Controller implements ActionListener {
                 {
                     System.out.println("error");
                 }
+                break;
+                
+            case "Start":
+                String rounds = this.view.getRounds();
+                int roundNumber = Integer.parseInt(rounds);
+                if(rounds.matches("\\d+") && inBoundsRound(roundNumber))
+                {
+//                    model.selectTopic(topic);
+                    System.out.println(rounds);
+                }
+                else
+                {
+                    System.out.println("error");
+                }
+                break;
+                
+            case "Back":
+                model.goBack();
+        }
+    }
+    
+    public boolean inBoundsTopic(int number)
+    {
+        if(number <= 10 && number > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public boolean inBoundsRound(int number)
+    {
+        if(number <= 4 && number > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
