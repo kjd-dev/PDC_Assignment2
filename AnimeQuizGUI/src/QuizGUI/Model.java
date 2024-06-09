@@ -16,11 +16,13 @@ import java.util.Random;
 public class Model extends Observable
 {
     public Database db;
+    public Questions q;
     public Data data;
     public String username;
     
     public String topicChoice;
     public int roundsSelected;
+    public List<String> randomQuestions;
 /*    
     public String question;
     public String option1;
@@ -41,6 +43,7 @@ public class Model extends Observable
     {
         this.db = new Database();
         this.db.dbsetup();
+        this.q = new Questions();
     }
    
     public void checkName(String username, String password)
@@ -68,6 +71,7 @@ public class Model extends Observable
         {
             case "1":
                 fileName = "./anime_questions/AOT_questions.txt";
+                System.out.println("aot");
                 break;
             case "2":
                 fileName = "./anime_questions/Bleach_questions.txt";
@@ -107,7 +111,17 @@ public class Model extends Observable
             
             while((line = br.readLine()) != null)
             {
-                questionList.add(line.trim());
+                String[] parts = line.split("\\|");
+                String question = parts[0];
+                    String option1 = parts[1];
+                    String option2 = parts[2];
+                    String option3 = parts[3];
+                    String option4 = parts[4];
+                    String answer = parts[5];
+                    String difficulty = parts[6];
+                    System.out.println(question);
+                    System.out.println(option1);
+                    q.addQuestion(question, option1, option2, option3, option4, answer, difficulty);
             }
             
             br.close();
@@ -117,15 +131,15 @@ public class Model extends Observable
             System.err.println("IOException Error: " + ex.getMessage());
         }
         
-        String[] questionArray = questionList.get(questionList.size()-1).split("\\|");
-        this.data.question = questionArray[0];
-        this.data.option1 = questionArray[1];
-        this.data.option2 = questionArray[2];
-        this.data.option3 = questionArray[3];
-        this.data.option4 = questionArray[4];
-        this.data.answer = questionArray[5];
-        this.data.difficulty = questionArray[6];
-        
+//        String[] questionArray = questionList.get(questionList.size()-1).split("\\|");
+//        
+//        this.data.question = questionArray[0];
+//        this.data.option1 = questionArray[1];
+//        this.data.option2 = questionArray[2];
+//        this.data.option3 = questionArray[3];
+//        this.data.option4 = questionArray[4];
+//        this.data.answer = questionArray[5];
+//        this.data.difficulty = questionArray[6];
         this.data.topicSelectFlag = true;
         this.setChanged();
         this.notifyObservers(this.data);
@@ -140,6 +154,7 @@ public class Model extends Observable
             case "1":
             {
                 System.out.print("You have chosen 10 rounds! ");
+                randomQuestions = q.getRandomQuestions(10);
                 break;
             }
             case "2":
@@ -159,6 +174,15 @@ public class Model extends Observable
             }
         }
         
+        String question = randomQuestions.get(0);
+//        
+        this.data.question = question;
+        this.data.option1 = q.getOption1(question);
+        this.data.option2 = q.getOption2(question);
+        this.data.option3 = q.getOption3(question);
+        this.data.option4 = q.getOption4(question);
+        this.data.answer = q.getAnswer(question);
+        this.data.difficulty = q.getDifficulty(question);
         this.data.roundSelectFlag = true;
         this.data.startFlag = true;
         this.setChanged();
@@ -167,12 +191,6 @@ public class Model extends Observable
     
     public boolean checkAnswer(String uAnswer)
     {
-        data.question = "YES";
-        data.option1 = "A) YES";
-        data.option2 = "B) YES";
-        data.option3 = "C) YES";
-        data.option4 = "D) YES";
-        
         if (uAnswer.toLowerCase().equals(data.answer.toLowerCase())) 
             {
 //                System.out.println("Correct! ");
@@ -199,6 +217,16 @@ public class Model extends Observable
 //                }
 //                streak = 0;
 //            }
+        this.data.qNum++;
+        String question = randomQuestions.get(this.data.qNum - 1);
+//        
+        this.data.question = question;
+        this.data.option1 = q.getOption1(question);
+        this.data.option2 = q.getOption2(question);
+        this.data.option3 = q.getOption3(question);
+        this.data.option4 = q.getOption4(question);
+        this.data.answer = q.getAnswer(question);
+        this.data.difficulty = q.getDifficulty(question);
         this.setChanged();
         this.notifyObservers(this.data);
         

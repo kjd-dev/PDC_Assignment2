@@ -72,9 +72,11 @@ public class View2 extends JFrame implements Observer{
         questionsPanel.setVisible(true);
     }
     
-    public void setQuestion(int qNum, String question, String option1, String option2, String option3, String option4)
+    public void setQuestion(int qNum, String question, String option1, String option2, String option3, String option4, String difficulty)
     {
-        this.questionNum.setText("Question " + qNum);
+        this.answerField.setText("");
+        this.questionNum.setText("QUESTION " + qNum);
+        this.difficultyText.setText(difficulty.toLowerCase());
         this.questionName.setText(question);
         this.option1.setText(option1);
         this.option2.setText(option2);
@@ -144,7 +146,7 @@ public class View2 extends JFrame implements Observer{
         else if (data.startFlag = true)
         {
             this.startQuiz();
-            this.setQuestion(data.qNum, data.question, data.option1, data.option2, data.option3, data.option4);
+            this.setQuestion(data.qNum, data.question, data.option1, data.option2, data.option3, data.option4, data.difficulty);
         }
         
     }
@@ -220,6 +222,7 @@ public class View2 extends JFrame implements Observer{
         questionName = new javax.swing.JLabel();
         quitButton = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
+        difficultyText = new javax.swing.JLabel();
         quitPanel = new javax.swing.JPanel();
         questionNum1 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
@@ -384,12 +387,12 @@ public class View2 extends JFrame implements Observer{
         jLabel9.setBackground(new java.awt.Color(168, 173, 173));
         jLabel9.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(134, 138, 138));
-        jLabel9.setText("2) Demon Slayer");
+        jLabel9.setText("3) Demon Slayer");
 
         jLabel10.setBackground(new java.awt.Color(168, 173, 173));
         jLabel10.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(134, 138, 138));
-        jLabel10.setText("3) Dragonball");
+        jLabel10.setText("4) Dragonball");
 
         jLabel12.setBackground(new java.awt.Color(168, 173, 173));
         jLabel12.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
@@ -643,7 +646,7 @@ public class View2 extends JFrame implements Observer{
         questionNum.setBackground(new java.awt.Color(187, 187, 187));
         questionNum.setFont(new java.awt.Font("AppleGothic", 1, 36)); // NOI18N
         questionNum.setForeground(new java.awt.Color(168, 173, 173));
-        questionNum.setText("Question 1");
+        questionNum.setText("QUESTION 1");
 
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/questions.jpg"))); // NOI18N
 
@@ -695,6 +698,7 @@ public class View2 extends JFrame implements Observer{
         jLabel45.setForeground(new java.awt.Color(168, 173, 173));
         jLabel45.setText("Enter selection e.g \"A\"");
 
+        questionName.setFont(new java.awt.Font("AppleGothic", 0, 13)); // NOI18N
         questionName.setForeground(new java.awt.Color(134, 138, 138));
         questionName.setText("Question");
 
@@ -710,24 +714,19 @@ public class View2 extends JFrame implements Observer{
 
         jLabel19.setText("Incorrect!");
 
+        difficultyText.setFont(new java.awt.Font("AppleGothic", 2, 14)); // NOI18N
+        difficultyText.setForeground(new java.awt.Color(168, 173, 173));
+        difficultyText.setText("(easy)");
+
         javax.swing.GroupLayout questionsPanelLayout = new javax.swing.GroupLayout(questionsPanel);
         questionsPanel.setLayout(questionsPanelLayout);
         questionsPanelLayout.setHorizontalGroup(
             questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelLayout.createSequentialGroup()
                 .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelLayout.createSequentialGroup()
-                        .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(option1)
-                            .addComponent(option3)
-                            .addComponent(option2)
-                            .addComponent(questionNum)
-                            .addComponent(questionName, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(option4))
-                        .addGap(152, 152, 152))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelLayout.createSequentialGroup()
+                    .addGroup(questionsPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
                         .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelLayout.createSequentialGroup()
                                 .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -742,17 +741,33 @@ public class View2 extends JFrame implements Observer{
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel19)
                                 .addGap(13, 13, 13)))
-                        .addGap(42, 42, 42))))
+                        .addGap(42, 42, 42))
+                    .addGroup(questionsPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(questionName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(option1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(option2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(option3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(option4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(questionsPanelLayout.createSequentialGroup()
+                                .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(difficultyText, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(questionNum))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         questionsPanelLayout.setVerticalGroup(
             questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(questionsPanelLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
                 .addComponent(questionNum)
-                .addGap(30, 30, 30)
-                .addComponent(questionName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(difficultyText)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(questionName)
+                .addGap(18, 18, 18)
                 .addComponent(option1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(option2)
@@ -760,7 +775,7 @@ public class View2 extends JFrame implements Observer{
                 .addComponent(option3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(option4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -790,7 +805,7 @@ public class View2 extends JFrame implements Observer{
         currentScore.setBackground(new java.awt.Color(168, 173, 173));
         currentScore.setFont(new java.awt.Font("AppleGothic", 0, 48)); // NOI18N
         currentScore.setForeground(new java.awt.Color(134, 138, 138));
-        currentScore.setText("01");
+        currentScore.setText("530");
 
         questionName1.setFont(new java.awt.Font("AppleGothic", 0, 18)); // NOI18N
         questionName1.setForeground(new java.awt.Color(134, 138, 138));
@@ -812,15 +827,14 @@ public class View2 extends JFrame implements Observer{
                         .addComponent(questionNum1)
                         .addGap(99, 99, 99))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quitPanelLayout.createSequentialGroup()
-                        .addGroup(quitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(questionName1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quitPanelLayout.createSequentialGroup()
-                                .addComponent(currentScore)
-                                .addGap(57, 57, 57))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quitPanelLayout.createSequentialGroup()
-                                .addComponent(highestScore)
-                                .addGap(34, 34, 34)))
-                        .addGap(163, 163, 163))))
+                        .addComponent(questionName1)
+                        .addGap(163, 163, 163))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quitPanelLayout.createSequentialGroup()
+                        .addComponent(currentScore)
+                        .addGap(206, 206, 206))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quitPanelLayout.createSequentialGroup()
+                        .addComponent(highestScore)
+                        .addGap(198, 198, 198))))
         );
         quitPanelLayout.setVerticalGroup(
             quitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -895,6 +909,7 @@ public class View2 extends JFrame implements Observer{
     private javax.swing.JTextField answerField;
     private javax.swing.JButton backButton;
     private javax.swing.JLabel currentScore;
+    private javax.swing.JLabel difficultyText;
     private javax.swing.JLabel highestScore;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;

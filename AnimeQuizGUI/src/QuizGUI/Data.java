@@ -34,5 +34,5 @@ public class Data
     String answer;
     String difficulty;
     
-    int qNum; // number of questions for the quiz based of difficulty.
+    int qNum = 1; // number of questions for the quiz based of difficulty.
 }
