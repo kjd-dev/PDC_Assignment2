@@ -1,6 +1,6 @@
 Who is currently in possession of the legendary Six Eyes? |A) Gojo|B) Geto|C) Jogo|D) Kento|A| Easy
 What color is Itadori Yuji's hair? |A) Red|B) Pink|C) White|D) Blonde|B| Easy
-Toji has no cursed energy. |A) True|B) False|A| Easy
+Toji has no cursed energy. |A) True|B) False| | |A| Easy
 What branch of Jujutsu High does Yuji attend? |A) Kyoto Metropolitan Curse Technical College|B) Osaka Metropolitan Curse Technical College|C) Tokyo Metropolitan Curse Technical College|D) Hakone Metropolitan Curse Technical College|C| Easy
 What is Nobara's signature attack? |A) Straw Doll Technique: Echo|B) Straw Doll Technique: Rebound|C) Straw Doll Technique: Impact|D) Straw Doll Technique: Resonance|D| Easy
 How many shikigami does Megumi possess? |A) Ten|B) Twelve|C) Six|D) Nine|A| Easy
@@ -15,10 +15,10 @@ How did Itadori survive his 'death'? |A) He learned reverse cursed technique|B) 
 What was the trigger word for Sukuna's binding vow? |A) Overtake|B) Posses|C) Displace|D) Enchain|D| Medium
 What is the name of the current Tokyo branch school principle? |A) Masamichi Yaga|B) Kazutora Yagura|C) Yoshinobu Gakuganji|D) Roronoa Zoro|A| Medium
 What is the ratio at which the weak spot for Nanami's cursed technique is created? |A) 5:5|B) 7:3|C) 9:1|D) 6:4|B| Medium
-Okkutsu Yuta is a distant relative of Satoru Gojo. |A) True|B) False|A| Medium
+Okkutsu Yuta is a distant relative of Satoru Gojo. |A) True|B) False| | |A| Medium
 When did Gojo learn reversed curse technique? |A) While growing up|B) When testing Sukuna|C) During his fight with Toji|D) While training with Geto|C| Medium
-Fushiguro Megumi knows the identity of his father. |A) True|B) False|B| Medium
-Who holds the record for most consecutive black flashes landed? |A) Nanami, B) Yuji, C) Gojo, D) A and B|D| Hard
+Fushiguro Megumi knows the identity of his father. |A) True|B) False| | |B| Medium
+Who holds the record for most consecutive black flashes landed? |A) Nanami|B) Yuji|C) Gojo|D) A and B|D| Hard
 What time does Nanami's technique go into Overtime? |A) 5pm|B) 11pm|C) 3pm|D) 9am|A| Hard
 What is the name of Yuta's cursed spirit? |A) Roku|B) Rika|C) Riko|D) Riki|B| Hard
 What are young women who have the potential to merge with Tengen called? |A) Mergers|B) Heavenly Vessels|C) Star Plasma Vessels|D) Life Paintings|C| Hard

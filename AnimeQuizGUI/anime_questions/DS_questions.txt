@@ -13,9 +13,9 @@ What sword do the Demon Slayer Corps use? |A) A Demon Slayer|B) A Chromium Blade
 What type of common bird serves as messengers to the Demon Slayers? |A) A falcon|B) An eagle|C) A crow|D) An owl|C| Medium
 How many demons do not support Muzan? |A) 5|B) 3|C) 2|D) None|B| Medium
 Who is known to kill demons while asleep? |A) Kamado Nezuko|B) Urokodaki Sakonji|C) Agatsuma Zenitsu|D) Kamado Zenitsu|C| Medium
-Muzan has human family members. |A) True|B) False|A| Medium
+Muzan has human family members. |A) True|B) False| | |A| Medium
 Did Tanjiro have 5 or 6 siblings? |A) 5|B) 6|C) 3|D) He only has Nezuko|A| Medium
-Tsugikuni Michikatsu is younger than Tsugikuni Yoriichi. |A) True|B) False|A| Medium
+Tsugikuni Michikatsu is younger than Tsugikuni Yoriichi. |A) True|B) False| | |A| Medium
 How many Kizuki are under the command of Muzan? |A) 13|B) 12|C) 10|D) 16|B| Medium
 What did Tanjiro do before he joined the Demon Slayers? |A) Farm|B) Sell charcoal|C) Study|D) Chop wood|B| Medium
 What is the name of the drum demon that was removed from the Kizuki? |A) Kyogai|B) Kyogo|C) Kyokai|D) Kyogagi|A| Hard
@@ -25,7 +25,7 @@ What is the name of the people who clean up the aftermath of a fight between a d
 What does the Wind Hashira like to eat? |A) Onigiri|B) Takoyaki|C) Mochi|D) Ohagi|D| Hard
 Who is the oldest out of the trio, Tanjiro, Zenitsu or Inosuke? |A) They are all the same age|B) Tanjiro|C) Zenitsu|D) Inosuke|C| Hard
 Who is the twin brother of Tokito Muichiro? |A) Tokito Yuichiro|B) Tokito Yoichi|C) Tokito Yuichoro|D) Tokito Yoichiri|A| Hard
-Is the little girl actually Muzan's daughter? |A) Yes|B) No|B| Hard
+Is the little girl actually Muzan's daughter? |A) Yes|B) No| | |B| Hard
 Who has a crush on Mitsuri? |A) Tokito Muichiro|B) Himejima Gyomei|C) Iguro Obanai|D) Kamado Tanjiro|C| Hard
 Who are the two demons on the run from Kibutsuji Muzan? |A) No demons are on the run|B) Tamayo and Yushiro|C) Nezuko and Tamayo|D) Yushiro and Nezuko|B| Hard
 Which Hashira has rare Marechi Blood? |A) The Water Hashira|B) The Earth Hashira|C) The Fire Hashira|D) The Wind Hashira|D| Extreme

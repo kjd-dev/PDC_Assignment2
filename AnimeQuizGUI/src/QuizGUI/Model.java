@@ -120,7 +120,12 @@ public class Model extends Observable
                     String difficulty = parts[6];
                     System.out.println(question);
                     System.out.println(option1);
+                    System.out.println(option2);
+                    System.out.println(option3);
+                    System.out.println(option4);
+                    System.out.println(difficulty);
                     q.addQuestion(question, option1, option2, option3, option4, answer, difficulty);
+                    System.out.println("Added.\n");
             }
             
             br.close();

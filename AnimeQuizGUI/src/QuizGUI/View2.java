@@ -78,8 +78,8 @@ public class View2 extends JFrame implements Observer{
     public void setQuestion(int qNum, String question, String option1, String option2, String option3, String option4, String difficulty)
     {
         this.answerField.setText("");
-        this.questionNum.setText("QUESTION " + qNum);
-        this.difficultyText.setText(difficulty.toLowerCase());
+        this.questionNum.setText("ROUND " + qNum);
+        this.difficultyText.setText(difficulty);
         this.questionName.setText(question);
         this.option1.setText(option1);
         this.option2.setText(option2);
@@ -789,10 +789,10 @@ public class View2 extends JFrame implements Observer{
                                     .addComponent(questionNum))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(streakText, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(questionsPanelLayout.createSequentialGroup()
-                                        .addGap(51, 51, 51)
-                                        .addComponent(fireImage, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(streakText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelLayout.createSequentialGroup()
+                                        .addComponent(fireImage, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(44, 44, 44)))))
                         .addContainerGap())))
         );
         questionsPanelLayout.setVerticalGroup(
@@ -808,7 +808,7 @@ public class View2 extends JFrame implements Observer{
                     .addGroup(questionsPanelLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(fireImage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(streakText)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(questionName)
@@ -822,7 +822,6 @@ public class View2 extends JFrame implements Observer{
                 .addComponent(option4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(resultText)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(questionsPanelLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
