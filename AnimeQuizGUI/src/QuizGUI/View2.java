@@ -115,11 +115,12 @@ public class View2 extends JFrame implements Observer{
         }
     }
     
-    public void quitGame(int currentScore)
+    public void quitGame(int currentScore, int highestScore)
     {
         this.questionsPanel.setVisible(false);
         this.quitPanel.setVisible(true);
         this.currentScore.setText("" + currentScore);
+        this.highestScore.setText("Highest score: " + highestScore);
     }
     
     @Override
@@ -128,7 +129,7 @@ public class View2 extends JFrame implements Observer{
        Data data = (Data) arg;
        if(data.quitFlag)
         {
-            this.quitGame(data.currentScore);
+            this.quitGame(data.currentScore, data.highScore);
         }
        else if(!data.loginFlag)
         {

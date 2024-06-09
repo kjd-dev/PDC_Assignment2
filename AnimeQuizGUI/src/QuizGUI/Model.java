@@ -71,7 +71,6 @@ public class Model extends Observable
         {
             case "1":
                 fileName = "./anime_questions/AOT_questions.txt";
-                System.out.println("aot");
                 break;
             case "2":
                 fileName = "./anime_questions/Bleach_questions.txt";
@@ -131,15 +130,6 @@ public class Model extends Observable
             System.err.println("IOException Error: " + ex.getMessage());
         }
         
-//        String[] questionArray = questionList.get(questionList.size()-1).split("\\|");
-//        
-//        this.data.question = questionArray[0];
-//        this.data.option1 = questionArray[1];
-//        this.data.option2 = questionArray[2];
-//        this.data.option3 = questionArray[3];
-//        this.data.option4 = questionArray[4];
-//        this.data.answer = questionArray[5];
-//        this.data.difficulty = questionArray[6];
         this.data.topicSelectFlag = true;
         this.setChanged();
         this.notifyObservers(this.data);
@@ -191,14 +181,14 @@ public class Model extends Observable
     
     public boolean checkAnswer(String uAnswer)
     {
+        
+        
         if (uAnswer.toLowerCase().equals(data.answer.toLowerCase())) 
-            {
-//                System.out.println("Correct! ");
-//                streak++;
-//                increaseScore(tier, streak);
-//                newScore = score;
-                data.correct = true;
-            }
+        {
+            streak++;
+            increaseScore(this.data.difficulty, streak);
+            data.correct = true;
+        }
         else
         {
             data.correct = false;
@@ -218,8 +208,7 @@ public class Model extends Observable
 //                streak = 0;
 //            }
         this.data.qNum++;
-        String question = randomQuestions.get(this.data.qNum - 1);
-//        
+        String question = randomQuestions.get(this.data.qNum);  
         this.data.question = question;
         this.data.option1 = q.getOption1(question);
         this.data.option2 = q.getOption2(question);
@@ -233,6 +222,20 @@ public class Model extends Observable
         return data.correct;
     }
     
+    private void increaseScore(String tier, int streak) 
+    {
+        int points = q.getPoints(tier);
+        double multiplier = 1d;
+        if(streak >= 3)
+        {
+            multiplier = 1 + ((streak / 10d)*streak);
+            System.out.println(streak + " STREAK BONUS ");
+        }
+        int newPoints = points *= multiplier;
+        System.out.println("+" + (newPoints) + "\n");
+        this.data.currentScore += newPoints;
+    }
+    
     public void goBack()
     {
         this.data.topicSelectFlag = false;
@@ -242,7 +245,7 @@ public class Model extends Observable
     
     public void quitGame()
     {
-        this.db.quitGame(this.data.currentScore, this.username);
+        this.db.quitGame(this.data.currentScore, this.data.highScore, this.username);
         this.data.quitFlag = true;
         this.setChanged();
         this.notifyObservers(this.data);

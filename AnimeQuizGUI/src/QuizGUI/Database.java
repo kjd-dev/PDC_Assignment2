@@ -75,7 +75,7 @@ public class Database
                 
                 if (password.compareTo(pass) == 0) 
                 {
-                    data.currentScore = rs.getInt("High_score");
+                    data.highScore = rs.getInt("High_score");
                     data.loginFlag = true;
                 }
                 else 
@@ -129,14 +129,17 @@ public class Database
         return flag;
     }
     
-    public void quitGame(int score, String username) 
+    public void quitGame(int score, int highScore, String username) 
     {
         Statement statement;
         
         try 
         {
-            statement = conn.createStatement();
-            statement.executeUpdate("UPDATE USERS SET High_score = " + score + "WHERE Username = '" + username + "'");
+            if(score > highScore)
+            {
+                statement = conn.createStatement();
+                statement.executeUpdate("UPDATE USERS SET High_score = " + score + "WHERE Username = '" + username + "'");
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);

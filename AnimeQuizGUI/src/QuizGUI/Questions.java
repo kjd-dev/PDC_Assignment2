@@ -148,5 +148,22 @@ public class Questions
         return questionAnswerMap.get(question);
     }
     
+    public int getPoints(String tier) 
+    {
+        switch (tier.trim().toLowerCase()) 
+        {
+            case "easy":
+                return 10; 
+            case "medium":
+                return 25;
+            case "hard":
+                return 50;
+            case "extreme":
+                return 100;
+            default:
+                return 0; 
+        }
+    }
+    
     
 }

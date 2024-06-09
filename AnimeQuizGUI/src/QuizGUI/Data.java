@@ -22,7 +22,7 @@ public class Data
     
     // User's scores recorded.
     int currentScore = 0; // Store user's cumulative scores.
-    int highScore = 0;
+    int highScore;
     
     // Questions List Stored.
     String topicChoice;
