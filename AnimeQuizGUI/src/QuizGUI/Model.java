@@ -37,8 +37,60 @@ public class Model extends Observable
    
     public void selectTopic(String topic)
     {
-        this.data.topicChoice = topic;
-        
+        switch(topic)
+        {
+            case "1":
+            {
+                
+                System.out.print("You have chosen Attack on Titan! ");
+                break;
+            }
+            case "2":
+            {
+                System.out.print("You have chosen Bleach! ");
+                break;
+            }
+            case "3":
+            {
+                System.out.print("You have chosen Demon Slayer! ");
+                break;
+            }
+            case "4":
+            {
+                System.out.print("You have chosen Dragon Ball! ");
+                break;
+            }
+            case "5":
+            {
+                System.out.print("You have chosen Hunter x Hunter! ");
+                break;
+            }
+            case "6":
+            {
+                System.out.print("You have chosen Jujutsu Kaisen! ");
+                break;
+            }
+            case "7":
+            {
+                System.out.print("You have chosen Naruto! ");
+                break;
+            }
+            case "8":
+            {
+                System.out.print("You have chosen One Piece! ");
+                break;
+            }
+            case "9":
+            {
+                System.out.print("You have chosen One Punch Man! ");
+                break;
+            }
+            case "10":
+            {
+                System.out.print("You have chosen That Time I Got Reincarnated as a Slime! ");
+                break;
+            }
+        }
     }
     
     public void listRounds()

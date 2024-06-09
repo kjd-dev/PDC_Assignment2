@@ -32,7 +32,14 @@ public class Controller implements ActionListener {
                 break;
             case "Select":
                 String topic = this.view.getTopic();
-                model.selectTopic(topic);
+                if(topic.matches("\\d+"))
+                {
+                    model.selectTopic(topic);
+                }
+                else
+                {
+                    System.out.println("error");
+                }
         }
     }
 }
