@@ -30,6 +30,9 @@ public class Controller implements ActionListener {
                 String password = this.view.getPassword();
                 model.checkName(username, password);
                 break;
+            case "Select":
+                String topic = this.view.getTopic();
+                model.selectTopic(topic);
         }
     }
 }
