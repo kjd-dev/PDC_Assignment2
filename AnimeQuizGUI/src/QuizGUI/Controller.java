@@ -108,6 +108,15 @@ public class Controller implements ActionListener {
             return;
         }
         boolean isCorrect = model.checkAnswer(answer);
+        if(model.isStreak())
+        {
+            int streak = model.getStreak();
+            view.showStreak(streak);
+        }
+        else
+        {
+            view.hideStreak();
+        }
         view.showAnswer(isCorrect);
     }
     

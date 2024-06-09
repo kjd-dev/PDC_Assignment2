@@ -70,6 +70,7 @@ public class View2 extends JFrame implements Observer{
     {
         roundsPanel.setVisible(false);
         questionsPanel.setVisible(true);
+        this.streakText.setVisible(false);
     }
     
     public void setQuestion(int qNum, String question, String option1, String option2, String option3, String option4, String difficulty)
@@ -113,6 +114,19 @@ public class View2 extends JFrame implements Observer{
             jLabel19.setText("Correct!");
 
         }
+    }
+    
+    public void showStreak(int streak)
+    {
+        this.streakText.setVisible(true);
+        this.streakText.setText(streak + " streak bonus!");
+        
+    }
+    
+    public void hideStreak()
+    {
+        this.streakText.setVisible(false);
+        
     }
     
     public void quitGame(int currentScore, int highestScore)
@@ -224,6 +238,7 @@ public class View2 extends JFrame implements Observer{
         quitButton = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         difficultyText = new javax.swing.JLabel();
+        streakText = new javax.swing.JLabel();
         quitPanel = new javax.swing.JPanel();
         questionNum1 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
@@ -719,17 +734,25 @@ public class View2 extends JFrame implements Observer{
         difficultyText.setForeground(new java.awt.Color(168, 173, 173));
         difficultyText.setText("(easy)");
 
+        streakText.setText("+0");
+
         javax.swing.GroupLayout questionsPanelLayout = new javax.swing.GroupLayout(questionsPanel);
         questionsPanel.setLayout(questionsPanelLayout);
         questionsPanelLayout.setHorizontalGroup(
             questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelLayout.createSequentialGroup()
                 .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(questionsPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
                         .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(questionsPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 387, Short.MAX_VALUE)
+                                .addComponent(jLabel19)
+                                .addGap(13, 13, 13))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelLayout.createSequentialGroup()
+                                .addComponent(streakText, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jSeparator6)
@@ -738,16 +761,10 @@ public class View2 extends JFrame implements Observer{
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addGap(13, 13, 13)))
+                                    .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(42, 42, 42))
                     .addGroup(questionsPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(questionName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(option1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(option2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(option3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(option4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -755,7 +772,12 @@ public class View2 extends JFrame implements Observer{
                                 .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(difficultyText, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(questionNum))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(questionsPanelLayout.createSequentialGroup()
+                                .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(questionName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(option1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(55, 55, 55)))
                         .addContainerGap())))
         );
         questionsPanelLayout.setVerticalGroup(
@@ -781,7 +803,9 @@ public class View2 extends JFrame implements Observer{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(questionsPanelLayout.createSequentialGroup()
-                        .addComponent(answerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(answerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(streakText))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -969,6 +993,7 @@ public class View2 extends JFrame implements Observer{
     private javax.swing.JTextField roundsField;
     private javax.swing.JPanel roundsPanel;
     private javax.swing.JButton startButton;
+    private javax.swing.JLabel streakText;
     private javax.swing.JButton topicButton;
     private javax.swing.JTextField topicField;
     private javax.swing.JPanel topicPanel;

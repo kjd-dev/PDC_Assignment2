@@ -37,7 +37,7 @@ public class Model extends Observable
     public List<String> hardQuestions;
     public List<String> extremeQuestions;
  */   
-    public int streak = 0;
+    
         
     public Model()
     {
@@ -185,12 +185,13 @@ public class Model extends Observable
         
         if (uAnswer.toLowerCase().equals(data.answer.toLowerCase())) 
         {
-            streak++;
-            increaseScore(this.data.difficulty, streak);
+            data.streak++;
+            increaseScore(this.data.difficulty, data.streak);
             data.correct = true;
         }
         else
         {
+            data.streak = 0;
             data.correct = false;
         }
 //            else 
@@ -208,7 +209,7 @@ public class Model extends Observable
 //                streak = 0;
 //            }
         this.data.qNum++;
-        String question = randomQuestions.get(this.data.qNum);  
+        String question = randomQuestions.get(this.data.qNum - 1);  
         this.data.question = question;
         this.data.option1 = q.getOption1(question);
         this.data.option2 = q.getOption2(question);
@@ -229,11 +230,22 @@ public class Model extends Observable
         if(streak >= 3)
         {
             multiplier = 1 + ((streak / 10d)*streak);
-            System.out.println(streak + " STREAK BONUS ");
+//            System.out.println(streak + " STREAK BONUS ");
         }
         int newPoints = points *= multiplier;
-        System.out.println("+" + (newPoints) + "\n");
+//        System.out.println("+" + (newPoints) + "\n");
         this.data.currentScore += newPoints;
+    }
+    
+    public boolean isStreak()
+    {
+        return this.data.streak >= 3;
+    }
+    
+    public int getStreak()
+    {
+        System.out.println(this.data.streak);
+        return this.data.streak;
     }
     
     public void goBack()
@@ -246,6 +258,10 @@ public class Model extends Observable
     public void quitGame()
     {
         this.db.quitGame(this.data.currentScore, this.data.highScore, this.username);
+        if(this.data.currentScore >= this.data.highScore)
+        {
+            this.data.highScore = this.data.currentScore;
+        }
         this.data.quitFlag = true;
         this.setChanged();
         this.notifyObservers(this.data);
