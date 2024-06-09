@@ -43,7 +43,6 @@ public class Controller implements ActionListener {
                 
             case "Next":
                 checkInput();
-                model.checkAnswer();
                 break;
                 
             case "Quit":
@@ -108,6 +107,8 @@ public class Controller implements ActionListener {
             view.popError("Invalid answer");
             return;
         }
+        boolean isCorrect = model.checkAnswer(answer);
+        view.showAnswer(isCorrect);
     }
     
     public boolean isValidEntry(String entry)
@@ -117,8 +118,7 @@ public class Controller implements ActionListener {
     
     public boolean isValidAnswer(String answer)
     {
-        String upperAnswer = answer.toUpperCase();
-        return upperAnswer.compareTo("A") >= 0 && upperAnswer.compareTo("D") <= 0;
+        return answer.length() == 1 && "abcd".contains(answer.toLowerCase());
     }
     
     public boolean inBoundsTopic(int number)

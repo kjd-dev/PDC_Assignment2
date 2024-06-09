@@ -92,7 +92,7 @@ public class Database
                  */
                 statement.executeUpdate("INSERT INTO USERS "
                         + "VALUES('" + username + "', '" + password + "', 0)");
-                data.currentScore = 0;
+                data.highScore = 0;
                 data.loginFlag = true;
                 
             }

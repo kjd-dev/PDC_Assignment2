@@ -897,7 +897,7 @@
                                   <Component id="quitButton" min="-2" pref="80" max="-2" attributes="0"/>
                                   <Component id="nextButton" min="-2" pref="80" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="83" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
@@ -908,6 +908,7 @@
                                   <Component id="option2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="questionNum" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="questionName" alignment="0" min="-2" pref="312" max="-2" attributes="0"/>
+                                  <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
                           </Group>
@@ -919,7 +920,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel39" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="questionNum" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="questionName" min="-2" max="-2" attributes="0"/>
@@ -945,7 +948,7 @@
                           <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
                           <Component id="quitButton" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="16" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1120,6 +1123,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quitButtonActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel19">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Incorrect! The correct answer was &quot;A&quot;"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

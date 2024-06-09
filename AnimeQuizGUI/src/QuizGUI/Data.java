@@ -18,11 +18,14 @@ public class Data
     boolean roundSelectFlag = false;
     boolean startFlag = false;
     int currentScore = 0; // Store user's cumulative scores.
+    int highScore = 0;
     String topicChoice;
     String question = "Is this working?";
     String option1 = "A) Test 1";
     String option2 = "B) Test 2";
     String option3 = "C) Test 3";
     String option4 = "D) Test 4";
+    String answer = "D";
+    boolean correct = false;
     int qNum = 1;
 }

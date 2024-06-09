@@ -14,6 +14,7 @@ public class Model extends Observable
     public Data data;
     public int topicChoice;
     public String username;
+    public int streak = 0;
         
     public Model()
     {
@@ -130,16 +131,45 @@ public class Model extends Observable
         this.notifyObservers(this.data);
     }
     
-    public void checkAnswer()
+    public boolean checkAnswer(String uAnswer)
     {
         data.question = "YES";
         data.option1 = "A) YES";
         data.option2 = "B) YES";
         data.option3 = "C) YES";
         data.option4 = "D) YES";
+        
+        if (uAnswer.toLowerCase().equals(data.answer.toLowerCase())) 
+            {
+//                System.out.println("Correct! ");
+//                streak++;
+//                increaseScore(tier, streak);
+//                newScore = score;
+                data.correct = true;
+            }
+        else
+        {
+            data.correct = false;
+        }
+//            else 
+//            {
+//                answer = q.getAnswer(question);
+//                if(streak >= 3)
+//                {
+//                    System.out.println("Incorrect! The correct answer was " + answer + ".");
+//                    System.out.println("STREAK BONUS LOST\n");
+//                }
+//                else
+//                {
+//                    System.out.println("Incorrect! The correct answer was " + answer + ".\n");
+//                }
+//                streak = 0;
+//            }
         data.qNum++;
         this.setChanged();
         this.notifyObservers(this.data);
+        
+        return data.correct;
     }
     
     public void goBack()

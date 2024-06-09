@@ -80,6 +80,7 @@ public class View2 extends JFrame implements Observer{
         this.option2.setText(option2);
         this.option3.setText(option3);
         this.option4.setText(option4);
+        this.jLabel19.setVisible(false);
     }
     
     public void popError(String error)
@@ -96,6 +97,20 @@ public class View2 extends JFrame implements Observer{
         this.backButton.addActionListener(listener);
         this.nextButton.addActionListener(listener);
         this.quitButton.addActionListener(listener);
+    }
+    
+    public void showAnswer(boolean isCorrect)
+    {
+        this.jLabel19.setVisible(true);
+        if( !isCorrect)
+        {
+            jLabel19.setText("Incorrect!");
+        }
+        else
+        {
+            jLabel19.setText("Correct!");
+
+        }
     }
     
     public void quitGame(int currentScore)
@@ -204,6 +219,7 @@ public class View2 extends JFrame implements Observer{
         jLabel45 = new javax.swing.JLabel();
         questionName = new javax.swing.JLabel();
         quitButton = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
         quitPanel = new javax.swing.JPanel();
         questionNum1 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
@@ -693,6 +709,8 @@ public class View2 extends JFrame implements Observer{
             }
         });
 
+        jLabel19.setText("Incorrect! The correct answer was \"A\"");
+
         javax.swing.GroupLayout questionsPanelLayout = new javax.swing.GroupLayout(questionsPanel);
         questionsPanel.setLayout(questionsPanelLayout);
         questionsPanelLayout.setHorizontalGroup(
@@ -711,7 +729,7 @@ public class View2 extends JFrame implements Observer{
                         .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(83, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(questionsPanelLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -720,14 +738,17 @@ public class View2 extends JFrame implements Observer{
                             .addComponent(option4)
                             .addComponent(option2)
                             .addComponent(questionNum)
-                            .addComponent(questionName, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(questionName, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19))
                         .addGap(0, 23, Short.MAX_VALUE))))
         );
         questionsPanelLayout.setVerticalGroup(
             questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(questionsPanelLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap()
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(questionNum)
                 .addGap(30, 30, 30)
                 .addComponent(questionName)
@@ -885,6 +906,7 @@ public class View2 extends JFrame implements Observer{
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel32;
