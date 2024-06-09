@@ -125,6 +125,19 @@ public class Model extends Observable
         }
         
         this.data.roundSelectFlag = true;
+        this.data.startFlag = true;
+        this.setChanged();
+        this.notifyObservers(this.data);
+    }
+    
+    public void checkAnswer()
+    {
+        data.question = "YES";
+        data.option1 = "A) YES";
+        data.option2 = "B) YES";
+        data.option3 = "C) YES";
+        data.option4 = "D) YES";
+        data.qNum++;
         this.setChanged();
         this.notifyObservers(this.data);
     }

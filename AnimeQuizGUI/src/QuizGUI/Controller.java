@@ -41,6 +41,10 @@ public class Controller implements ActionListener {
                 model.goBack();
                 break;
                 
+            case "Next":
+                model.checkAnswer();
+                break;
+                
             default:
                 view.popError("Error");
         }

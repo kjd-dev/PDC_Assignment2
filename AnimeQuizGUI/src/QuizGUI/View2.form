@@ -885,29 +885,31 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jSeparator6" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="answerField" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="nextButton" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jSeparator6" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="answerField" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="quitButton" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="nextButton" min="-2" pref="80" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="83" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel42" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel43" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel38" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="option1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="option3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="option4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="option2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="questionNum" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="questionName" alignment="0" min="-2" pref="312" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -918,16 +920,18 @@
                   <Component id="jLabel39" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
+                      <Component id="questionNum" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="questionName" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
+                      <Component id="option1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
+                      <Component id="option2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                      <Component id="option3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="option4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="answerField" min="-2" max="-2" attributes="0"/>
@@ -937,14 +941,17 @@
                           <Component id="nextButton" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
+                          <Component id="quitButton" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel38">
+            <Component class="javax.swing.JLabel" name="questionNum">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="bb" green="bb" red="bb" type="rgb"/>
@@ -955,7 +962,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ad" green="ad" red="a8" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="SELECT ROUNDS"/>
+                <Property name="text" type="java.lang.String" value="Question 1"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel39">
@@ -994,7 +1001,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel40">
+            <Component class="javax.swing.JLabel" name="option1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ad" green="ad" red="a8" type="rgb"/>
@@ -1005,10 +1012,10 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8a" green="8a" red="86" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="1) 10"/>
+                <Property name="text" type="java.lang.String" value="A) Option 1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel41">
+            <Component class="javax.swing.JLabel" name="option2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ad" green="ad" red="a8" type="rgb"/>
@@ -1019,10 +1026,10 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8a" green="8a" red="86" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="2) 16"/>
+                <Property name="text" type="java.lang.String" value="B) Option 2"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel42">
+            <Component class="javax.swing.JLabel" name="option3">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ad" green="ad" red="a8" type="rgb"/>
@@ -1033,10 +1040,10 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8a" green="8a" red="86" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="3) 22"/>
+                <Property name="text" type="java.lang.String" value="C) Option 3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel43">
+            <Component class="javax.swing.JLabel" name="option4">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ad" green="ad" red="a8" type="rgb"/>
@@ -1047,7 +1054,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8a" green="8a" red="86" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="4) DEATHRUN"/>
+                <Property name="text" type="java.lang.String" value="D) Option 4"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="nextButton">
@@ -1082,8 +1089,37 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ad" green="ad" red="a8" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Enter selection e.g &quot;1&quot;"/>
+                <Property name="text" type="java.lang.String" value="Enter selection e.g &quot;A&quot;"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="questionName">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="8a" green="8a" red="86" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Question"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="quitButton">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ed" green="ec" red="e6" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="57" green="37" red="1c" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Quit"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder>
+                      <Color PropertyName="color" blue="57" green="37" red="1c" type="rgb"/>
+                    </LineBorder>
+                  </Border>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quitButtonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

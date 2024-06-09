@@ -61,6 +61,22 @@ public class View2 extends JFrame implements Observer{
         roundsPanel.setVisible(true);
     }
     
+    public void startQuiz()
+    {
+        roundsPanel.setVisible(false);
+        questionsPanel.setVisible(true);
+    }
+    
+    public void setQuestion(int qNum, String question, String option1, String option2, String option3, String option4)
+    {
+        this.questionNum.setText("Question " + qNum);
+        this.questionName.setText(question);
+        this.option1.setText(option1);
+        this.option2.setText(option2);
+        this.option3.setText(option3);
+        this.option4.setText(option4);
+    }
+    
     public void popError(String error)
     {
         JOptionPane.showMessageDialog(this, error);
@@ -73,6 +89,7 @@ public class View2 extends JFrame implements Observer{
         this.topicButton.addActionListener(listener);
         this.startButton.addActionListener(listener);
         this.backButton.addActionListener(listener);
+        this.nextButton.addActionListener(listener);
     }
     
     @Override
@@ -91,6 +108,11 @@ public class View2 extends JFrame implements Observer{
         else if (!data.roundSelectFlag)
         {
             this.startRounds();
+        }
+        else if (data.startFlag = true)
+        {
+            this.startQuiz();
+            this.setQuestion(data.qNum, data.question, data.option1, data.option2, data.option3, data.option4);
         }
     }
     
@@ -152,16 +174,18 @@ public class View2 extends JFrame implements Observer{
         jLabel44 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         questionsPanel = new javax.swing.JPanel();
-        jLabel38 = new javax.swing.JLabel();
+        questionNum = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         answerField = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
+        option1 = new javax.swing.JLabel();
+        option2 = new javax.swing.JLabel();
+        option3 = new javax.swing.JLabel();
+        option4 = new javax.swing.JLabel();
         nextButton = new javax.swing.JButton();
         jLabel45 = new javax.swing.JLabel();
+        questionName = new javax.swing.JLabel();
+        quitButton = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
@@ -577,10 +601,10 @@ public class View2 extends JFrame implements Observer{
 
         questionsPanel.setBackground(new java.awt.Color(230, 236, 237));
 
-        jLabel38.setBackground(new java.awt.Color(187, 187, 187));
-        jLabel38.setFont(new java.awt.Font("AppleGothic", 1, 36)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(168, 173, 173));
-        jLabel38.setText("SELECT ROUNDS");
+        questionNum.setBackground(new java.awt.Color(187, 187, 187));
+        questionNum.setFont(new java.awt.Font("AppleGothic", 1, 36)); // NOI18N
+        questionNum.setForeground(new java.awt.Color(168, 173, 173));
+        questionNum.setText("Question 1");
 
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/questions.jpg"))); // NOI18N
 
@@ -597,25 +621,25 @@ public class View2 extends JFrame implements Observer{
         jSeparator6.setBackground(new java.awt.Color(28, 55, 87));
         jSeparator6.setForeground(new java.awt.Color(28, 55, 87));
 
-        jLabel40.setBackground(new java.awt.Color(168, 173, 173));
-        jLabel40.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(134, 138, 138));
-        jLabel40.setText("1) 10");
+        option1.setBackground(new java.awt.Color(168, 173, 173));
+        option1.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
+        option1.setForeground(new java.awt.Color(134, 138, 138));
+        option1.setText("A) Option 1");
 
-        jLabel41.setBackground(new java.awt.Color(168, 173, 173));
-        jLabel41.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(134, 138, 138));
-        jLabel41.setText("2) 16");
+        option2.setBackground(new java.awt.Color(168, 173, 173));
+        option2.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
+        option2.setForeground(new java.awt.Color(134, 138, 138));
+        option2.setText("B) Option 2");
 
-        jLabel42.setBackground(new java.awt.Color(168, 173, 173));
-        jLabel42.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(134, 138, 138));
-        jLabel42.setText("3) 22");
+        option3.setBackground(new java.awt.Color(168, 173, 173));
+        option3.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
+        option3.setForeground(new java.awt.Color(134, 138, 138));
+        option3.setText("C) Option 3");
 
-        jLabel43.setBackground(new java.awt.Color(168, 173, 173));
-        jLabel43.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(134, 138, 138));
-        jLabel43.setText("4) DEATHRUN");
+        option4.setBackground(new java.awt.Color(168, 173, 173));
+        option4.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
+        option4.setForeground(new java.awt.Color(134, 138, 138));
+        option4.setText("D) Option 4");
 
         nextButton.setBackground(new java.awt.Color(230, 236, 237));
         nextButton.setForeground(new java.awt.Color(28, 55, 87));
@@ -630,7 +654,20 @@ public class View2 extends JFrame implements Observer{
         jLabel45.setBackground(new java.awt.Color(168, 173, 173));
         jLabel45.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(168, 173, 173));
-        jLabel45.setText("Enter selection e.g \"1\"");
+        jLabel45.setText("Enter selection e.g \"A\"");
+
+        questionName.setForeground(new java.awt.Color(134, 138, 138));
+        questionName.setText("Question");
+
+        quitButton.setBackground(new java.awt.Color(230, 236, 237));
+        quitButton.setForeground(new java.awt.Color(28, 55, 87));
+        quitButton.setText("Quit");
+        quitButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(28, 55, 87)));
+        quitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout questionsPanelLayout = new javax.swing.GroupLayout(questionsPanel);
         questionsPanel.setLayout(questionsPanelLayout);
@@ -641,40 +678,44 @@ public class View2 extends JFrame implements Observer{
                 .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(questionsPanelLayout.createSequentialGroup()
                         .addGap(58, 58, 58)
-                        .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel45, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, questionsPanelLayout.createSequentialGroup()
-                                .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jSeparator6)
-                                    .addComponent(answerField, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jSeparator6)
+                                .addComponent(answerField, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel45))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(83, Short.MAX_VALUE))
                     .addGroup(questionsPanelLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel40)
-                            .addComponent(jLabel42)
-                            .addComponent(jLabel43)
-                            .addComponent(jLabel41)
-                            .addComponent(jLabel38))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(option1)
+                            .addComponent(option3)
+                            .addComponent(option4)
+                            .addComponent(option2)
+                            .addComponent(questionNum)
+                            .addComponent(questionName, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 23, Short.MAX_VALUE))))
         );
         questionsPanelLayout.setVerticalGroup(
             questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(questionsPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(jLabel38)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel40)
+                .addComponent(questionNum)
+                .addGap(30, 30, 30)
+                .addComponent(questionName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel41)
+                .addComponent(option1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel42)
+                .addComponent(option2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel43)
-                .addGap(58, 58, 58)
+                .addComponent(option3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(option4)
+                .addGap(34, 34, 34)
                 .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(questionsPanelLayout.createSequentialGroup()
                         .addComponent(answerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -682,7 +723,9 @@ public class View2 extends JFrame implements Observer{
                         .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel45)
+                .addGroup(questionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel45)
+                    .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -734,6 +777,10 @@ public class View2 extends JFrame implements Observer{
         // TODO add your handling code here:
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quitButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Parent;
@@ -758,13 +805,8 @@ public class View2 extends JFrame implements Observer{
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
@@ -783,9 +825,16 @@ public class View2 extends JFrame implements Observer{
     private javax.swing.JButton loginButton;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JButton nextButton;
+    private javax.swing.JLabel option1;
+    private javax.swing.JLabel option2;
+    private javax.swing.JLabel option3;
+    private javax.swing.JLabel option4;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordIcon;
+    private javax.swing.JLabel questionName;
+    private javax.swing.JLabel questionNum;
     private javax.swing.JPanel questionsPanel;
+    private javax.swing.JButton quitButton;
     private javax.swing.JTextField roundsField;
     private javax.swing.JPanel roundsPanel;
     private javax.swing.JButton startButton;
