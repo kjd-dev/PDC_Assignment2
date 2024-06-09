@@ -15,5 +15,6 @@ public class Data
     boolean loginFlag = false; // Check if the user successfully login the system.
     boolean quitFlag = false; // Check if the user quit the system.
     int currentScore = 0; // Store user's cumulative scores.
+    boolean topicSelectFlag = false;
     int topicChoice = 0;
 }

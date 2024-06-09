@@ -35,10 +35,10 @@ public class Model extends Observable
         this.notifyObservers(this.data);
     }
    
-    public void selectTopic(String topic)
-    {
-        this.topicChoice
-    }
+//    public void selectTopic(String topic)
+//    {
+//        this.topicChoice
+//    }
     
     public void listRounds()
     {
