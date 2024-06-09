@@ -865,14 +865,6 @@ public class View2 extends JFrame implements Observer{
         // TODO add your handling code here:
     }//GEN-LAST:event_topicButtonActionPerformed
 
-    private void roundsFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roundsFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_roundsFieldActionPerformed
-
-    private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_startButtonActionPerformed
-
     private void answerFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_answerFieldActionPerformed
@@ -881,13 +873,21 @@ public class View2 extends JFrame implements Observer{
         // TODO add your handling code here:
     }//GEN-LAST:event_nextButtonActionPerformed
 
+    private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quitButtonActionPerformed
+
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
+    private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_quitButtonActionPerformed
+    }//GEN-LAST:event_startButtonActionPerformed
+
+    private void roundsFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roundsFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roundsFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
