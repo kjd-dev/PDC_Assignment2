@@ -12,20 +12,27 @@ package QuizGUI;
 
 public class Data 
 {
+    //Flags.
     boolean loginFlag = false; // Check if the user successfully login the system.
     boolean quitFlag = false; // Check if the user quit the system.
-    boolean topicSelectFlag = false; // Check if the user has selected a topic
-    boolean roundSelectFlag = false;
-    boolean startFlag = false;
+    boolean topicSelectFlag = false; // Check if the user has selected a topic.
+    boolean roundSelectFlag = false; // Check if the user has selected a round.
+    boolean startFlag = false; // Check if the quiz has started.
+    boolean correct = false; // Check if the answer to the question is correct.
+    
+    // User's scores recorded.
     int currentScore = 0; // Store user's cumulative scores.
     int highScore = 0;
+    
+    // Questions List Stored.
     String topicChoice;
-    String question = "Is this working?";
-    String option1 = "A) Test 1";
-    String option2 = "B) Test 2";
-    String option3 = "C) Test 3";
-    String option4 = "D) Test 4";
-    String answer = "D";
-    boolean correct = false;
-    int qNum = 1;
+    String question;
+    String option1;
+    String option2;
+    String option3;
+    String option4;
+    String answer;
+    String difficulty;
+    
+    int qNum; // number of questions for the quiz based of difficulty.
 }
