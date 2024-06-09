@@ -143,23 +143,22 @@ public class Model extends Observable
         {
             case "1":
             {
-                System.out.print("You have chosen 10 rounds! ");
                 randomQuestions = q.getRandomQuestions(10);
                 break;
             }
             case "2":
             {
-                System.out.print("You have chosen 16 rounds! ");
+                randomQuestions = q.getRandomQuestions(16);
                 break;
             }
             case "3":
             {
-                System.out.print("You have chosen 22 rounds! ");
+                randomQuestions = q.getRandomQuestions(22);
                 break;
             }
             case "4":
             {
-                System.out.print("You have chosen the deathrun!");
+                randomQuestions = q.getRandomQuestions(35);
                 break;
             }
         }
@@ -209,16 +208,23 @@ public class Model extends Observable
 //                streak = 0;
 //            }
         this.data.qNum++;
-        String question = randomQuestions.get(this.data.qNum - 1);  
-        this.data.question = question;
-        this.data.option1 = q.getOption1(question);
-        this.data.option2 = q.getOption2(question);
-        this.data.option3 = q.getOption3(question);
-        this.data.option4 = q.getOption4(question);
-        this.data.answer = q.getAnswer(question);
-        this.data.difficulty = q.getDifficulty(question);
-        this.setChanged();
-        this.notifyObservers(this.data);
+        if(this.data.qNum - 1 == randomQuestions.size())
+        {
+            quitGame();
+        }
+        else
+        {
+            String question = randomQuestions.get(this.data.qNum - 1);  
+            this.data.question = question;
+            this.data.option1 = q.getOption1(question);
+            this.data.option2 = q.getOption2(question);
+            this.data.option3 = q.getOption3(question);
+            this.data.option4 = q.getOption4(question);
+            this.data.answer = q.getAnswer(question);
+            this.data.difficulty = q.getDifficulty(question);
+            this.setChanged();
+            this.notifyObservers(this.data);
+        }
         
         return data.correct;
     }

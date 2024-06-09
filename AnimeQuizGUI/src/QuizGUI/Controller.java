@@ -91,7 +91,10 @@ public class Controller implements ActionListener {
 
         int roundsNumber = Integer.parseInt(rounds);
         if (inBoundsRounds(roundsNumber)) {
-            
+            if(roundsNumber == 4)
+            {
+                view.popError("Good luck...");
+            }
             model.selectRounds(rounds);
         } else 
         {
