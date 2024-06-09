@@ -42,6 +42,7 @@ public class Controller implements ActionListener {
                 break;
                 
             case "Next":
+                checkInput();
                 model.checkAnswer();
                 break;
                 
@@ -99,9 +100,25 @@ public class Controller implements ActionListener {
         }
     }
     
-    public boolean isValidEntry(String topic)
+    public void checkInput()
     {
-        return topic.matches("\\d+");
+        String answer = this.view.getAnswer();
+        if (!isValidAnswer(answer)) 
+        {
+            view.popError("Invalid answer");
+            return;
+        }
+    }
+    
+    public boolean isValidEntry(String entry)
+    {
+        return entry.matches("\\d+");
+    }
+    
+    public boolean isValidAnswer(String answer)
+    {
+        String upperAnswer = answer.toUpperCase();
+        return upperAnswer.compareTo("A") >= 0 && upperAnswer.compareTo("D") <= 0;
     }
     
     public boolean inBoundsTopic(int number)

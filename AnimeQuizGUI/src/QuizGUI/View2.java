@@ -48,6 +48,11 @@ public class View2 extends JFrame implements Observer{
         return new String(roundsField.getText());
     }
     
+    public String getAnswer() 
+    {
+        return new String(answerField.getText());
+    }
+    
     public void startTopic()
     {
         loginPanel.setVisible(false);
