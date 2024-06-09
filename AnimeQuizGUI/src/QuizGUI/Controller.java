@@ -26,41 +26,74 @@ public class Controller implements ActionListener {
         switch(command) 
         {
             case "Log in":
-                String username = this.view.getUsername();
-                String password = this.view.getPassword();
-                model.checkName(username, password);
+                login();
                 break;
                 
             case "Select":
-                String topic = this.view.getTopic();
-                int topicNumber = Integer.parseInt(topic);
-                if(topic.matches("\\d+") &&  inBoundsTopic(topicNumber))
-                {
-                    model.selectTopic(topic);
-                }
-                else
-                {
-                    System.out.println("error");
-                }
+                checkSelectTopic();
                 break;
                 
             case "Start":
-                String rounds = this.view.getRounds();
-                int roundNumber = Integer.parseInt(rounds);
-                if(rounds.matches("\\d+") && inBoundsRound(roundNumber))
-                {
-//                    model.selectTopic(topic);
-                    System.out.println(rounds);
-                }
-                else
-                {
-                    System.out.println("error");
-                }
+                checkSelectRounds();
                 break;
                 
             case "Back":
                 model.goBack();
+                break;
+                
+            default:
+                view.popError("Error");
         }
+    }
+    
+    public void login()
+    {
+        String username = this.view.getUsername();
+        String password = this.view.getPassword();
+        model.checkName(username, password);
+    }
+    
+    public void checkSelectTopic()
+    {
+        String topic = this.view.getTopic();
+        if (!isValidEntry(topic)) 
+        {
+            view.popError("Invalid topic.");
+            return;
+        }
+
+        int topicNumber = Integer.parseInt(topic);
+        if (inBoundsTopic(topicNumber)) 
+        {
+            model.selectTopic(topic);
+        } else 
+        {
+            view.popError("Selection out of bounds.");
+        }
+    }
+    
+    public void checkSelectRounds()
+    {
+        String rounds = this.view.getRounds();
+        if (!isValidEntry(rounds)) 
+        {
+            view.popError("Invalid topic.");
+            return;
+        }
+
+        int roundsNumber = Integer.parseInt(rounds);
+        if (inBoundsRounds(roundsNumber)) {
+            
+            model.selectRounds(rounds);
+        } else 
+        {
+            view.popError("Selection out of bounds.");
+        }
+    }
+    
+    public boolean isValidEntry(String topic)
+    {
+        return topic.matches("\\d+");
     }
     
     public boolean inBoundsTopic(int number)
@@ -75,7 +108,7 @@ public class Controller implements ActionListener {
         }
     }
     
-    public boolean inBoundsRound(int number)
+    public boolean inBoundsRounds(int number)
     {
         if(number <= 4 && number > 0)
         {

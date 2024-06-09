@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -58,6 +59,11 @@ public class View2 extends JFrame implements Observer{
     {
         topicPanel.setVisible(false);
         roundsPanel.setVisible(true);
+    }
+    
+    public void popError(String error)
+    {
+        JOptionPane.showMessageDialog(this, error);
     }
     
     
@@ -145,6 +151,7 @@ public class View2 extends JFrame implements Observer{
         startButton = new javax.swing.JButton();
         jLabel44 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
+        testLabel = new javax.swing.JLabel();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
@@ -497,6 +504,8 @@ public class View2 extends JFrame implements Observer{
             }
         });
 
+        testLabel.setText("Test");
+
         javax.swing.GroupLayout roundsPanelLayout = new javax.swing.GroupLayout(roundsPanel);
         roundsPanel.setLayout(roundsPanelLayout);
         roundsPanelLayout.setHorizontalGroup(
@@ -516,7 +525,9 @@ public class View2 extends JFrame implements Observer{
                                     .addComponent(jSeparator5)
                                     .addComponent(roundsField, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(roundsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(testLabel)
+                                    .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(83, Short.MAX_VALUE))
                     .addGroup(roundsPanelLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
@@ -542,7 +553,9 @@ public class View2 extends JFrame implements Observer{
                 .addComponent(jLabel36)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel37)
-                .addGap(58, 58, 58)
+                .addGap(2, 2, 2)
+                .addComponent(testLabel)
+                .addGap(39, 39, 39)
                 .addGroup(roundsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(roundsPanelLayout.createSequentialGroup()
                         .addComponent(roundsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -640,6 +653,7 @@ public class View2 extends JFrame implements Observer{
     private javax.swing.JTextField roundsField;
     private javax.swing.JPanel roundsPanel;
     private javax.swing.JButton startButton;
+    private javax.swing.JLabel testLabel;
     private javax.swing.JButton topicButton;
     private javax.swing.JTextField topicField;
     private javax.swing.JPanel topicPanel;

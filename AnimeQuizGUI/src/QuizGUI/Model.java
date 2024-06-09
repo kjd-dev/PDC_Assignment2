@@ -97,6 +97,38 @@ public class Model extends Observable
         this.notifyObservers(this.data);
     }
     
+    public void selectRounds(String rounds)
+    {
+        switch(rounds)
+        {
+            case "1":
+            {
+                
+                System.out.print("You have chosen 10 rounds! ");
+                break;
+            }
+            case "2":
+            {
+                System.out.print("You have chosen 16 rounds! ");
+                break;
+            }
+            case "3":
+            {
+                System.out.print("You have chosen 22 rounds! ");
+                break;
+            }
+            case "4":
+            {
+                System.out.print("You have chosen the deathrun!");
+                break;
+            }
+        }
+        
+        this.data.roundSelectFlag = true;
+        this.setChanged();
+        this.notifyObservers(this.data);
+    }
+    
     public void goBack()
     {
         this.data.topicSelectFlag = false;
