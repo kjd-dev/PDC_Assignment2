@@ -37,16 +37,17 @@ public class View2 extends JFrame implements Observer{
         return new String(passwordField.getPassword());
     }
     
-    public void selectTopic()
+    public String getTopic() 
+    {
+        return new String(topicField.getText());
+    }
+    
+    public void startTopic()
     {
         loginPanel.setVisible(false);
         topicPanel.setVisible(true);
     }
     
-    public String getTopic() 
-    {
-        return new String(topicField.getText());
-    }
     
     public void addActionListener(ActionListener listener)
     {
@@ -65,8 +66,7 @@ public class View2 extends JFrame implements Observer{
         }
         else if (!data.topicSelectFlag)
         {
-            this.selectTopic();
-            data.topicSelectFlag = true;
+            this.startTopic();
         }
     }
     
