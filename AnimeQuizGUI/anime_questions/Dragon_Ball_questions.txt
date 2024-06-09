@@ -1,0 +1,37 @@
+Who is Son Goku? |A) The antagonist, B) A side character, C) The second main lead, D) The protagonist|D| Easy
+How many sons does Goku and Chi-Chi have? |A) 3, B) A baseball team, C) None, D) 2|D| Easy
+What is Goku's signature move? |A) Kamehameha, B) Spirit Bomb, C) Instant Transmission, D) Ultra Instinct|A| Easy
+Who inspired Goku to attempt to learn Kamehameha? |A) King Kai, B) Piccolo, C) Master Roshi, D) Gohan|C| Easy
+Who has never won a World Martial Arts Tournament? |A) Piccolo, B) Goku, C) Master Roshi, D) Tien|A| Easy
+Who was the first villian within the series Dragon Ball? A) Broly, B) Vegeta, C) Freeza, D) Pilaf|D| Easy
+What is Goku's other name that he is known by? |A) Kakarot, B) Kakorot, C) Kakerot, D) Kakaret|A| Easy
+Who is Goku's wife? |A) Bulma, B) Caulifla, C) Cheelai, D) Chi-Chi|D| Easy
+The shapeshifters in the series are all named after what? |A) Bread, B) Fruit, C) Tea, D) Vegetables|C| Easy
+How many dragon balls are required to summon Shenron? |A) 5, B) 6, C) 8, D) 7|D| Easy
+When we first met Bulma, her plan was to collect Dragon Balls to grant what wish? |A) Bring someone back from the dead, B) Make herself beautiful, C) Money to fund her research, D) Give her the perfect boyfriend|D| Medium
+In Dragonball: Evolution, what was the wish granted by the Dragon Balls? |A) Defeat Piccolo, B) Destroy the Dragon Balls, C) Turn Goku into a Super Saiyan, D) Bring Master Roshi back to life|D| Medium
+Who is Goku's biological father? |A) Raditz, B) Broly, C) Bardock, D) Nappa|C| Medium
+What is the name of the planet that Vegeta and Nappa come from? |A) Namek, B) Earth, C) Planet Frieza #79, D) Planet Vegeta|D| Medium
+Who is hailed as the prince of the Saiyan race? |A) Goku, B) Vegeta, C) Broly, D) Bardock|B| Medium
+Who is the creator of the Dragon Balls? |A) Kami, B) Zeno, C) Grand Priest, D) Zamasu|A| Medium
+Who is known as the God of Destruction in Universe 7? |A) Whis, B) Beerus, C) Champa, D) Zeno|B| Medium
+What is the name of the energy attack that Piccolo uses? |A) Special Beam Cannon, B) Destruction Disc, C) Big Bang Attack, D) Final Flash|A| Medium
+What is the name of the evil organization within the Dragon Ball series? |A) Freeza Force, B) Red Ribbon Army, C) Saiyan Army, D) Galactic Patrol|B| Medium
+Which android is the one that killed Future Gohan? |A) Android 16, B) Android 17, C) Android 18, D) Android 19|C| Medium
+Who is Goku's oldest friend? |A) Krillin, B) Chi-Chi, C) Bulma, D) Master Roshi|C| Hard
+Which of the following techniques allows Goku to amplify his power temporarily? |A) Kai, B) Kaio-Ken, C) Kaiken, D) Ken|B| Hard
+What is the technique name that allows Goku and Vegeta to fuse using earrings? |A) Fusion Dance, B) Metamoran Fusion, C) Namekian Fusion, D) Potara Fusion|D| Hard
+Who is the Supreme Kai of Universe 7? |A) Gowasu, B) King Kai, C) Shin, D) Elder Kai|C| Hard
+How do saiyans transform into a Great Ape? |A) Absorbing Bruits Waves through their eyes, B) Cutting off their tails, C) Pushing them to their breaking point, D) When they eat a Devil Fruit|A| Hard
+In the final battle of Dragon Ball Z, what was the name of the technique that Goku used to destroy Kid Buu? |A) Super Spirit Bomb, B) Universal Spirit Bomb, C) Dragon Fist, D) Final Explosion|C| Hard
+How many times has Goku died throughout the collection series of Dragon Ball? |A) Not once, he is too OP, B) Once is a coincidence, C) Twice is questionable, D) Three times is the charm|C| Hard
+Who of the following were evildoers originally but ended up turning over a new leaf? |A) Piccolo, B) Puar, C) Yamcha, D) All of the above|D| Hard
+Who's the daughter of King Cold as well as the younger sister of Freeza? |A) Frost, B) Icicle, C) Icy, D) Cooler|D| Hard
+Who can control time with his Time Skip technique? |A) Goku Black, B) Jiren, C) Hit, D) Beerus|C| Hard
+What is the name of the alternate timeline where Future Trunks comes from? |A) Timeline 1, B) Timeline 2, C) Timeline 3, D) Timeline 4|D| Extreme
+Roughly how many antagonists turned to allies or heros within the series? |A) 10-15, B) 15-20, C) 0-5, D) 5-10|A| Extreme
+What is the name of the technique used by Goku to train with King Kai while travelling to Namek? |A) Gravity Chamber, B) Kaio-Ken, C) Ultra Instinct, D) Instant Transmission|B| Extreme
+Who was the first to achieve Super Saiyan 2? |A) Vegeta, B) Gohan, C) Goku, D) Goten|B| Extreme
+What does Vegeta scream when Beerus hits Bulma? |A) My wife!, B) Beerus!, C) How dare you!, D) My Bulma!|D| Extreme
+    }
+}
