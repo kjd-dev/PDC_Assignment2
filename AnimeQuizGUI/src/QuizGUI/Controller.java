@@ -45,6 +45,10 @@ public class Controller implements ActionListener {
                 model.checkAnswer();
                 break;
                 
+            case "Quit":
+                model.quitGame();
+                break;
+                
             default:
                 view.popError("Error");
         }

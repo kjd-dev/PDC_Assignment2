@@ -149,6 +149,14 @@ public class Model extends Observable
         this.notifyObservers(this.data);
     }
     
+    public void quitGame()
+    {
+        this.db.quitGame(this.data.currentScore, this.username);
+        this.data.quitFlag = true;
+        this.setChanged();
+        this.notifyObservers(this.data);
+    }
+    
     public void listRounds()
     {
         

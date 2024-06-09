@@ -90,13 +90,25 @@ public class View2 extends JFrame implements Observer{
         this.startButton.addActionListener(listener);
         this.backButton.addActionListener(listener);
         this.nextButton.addActionListener(listener);
+        this.quitButton.addActionListener(listener);
+    }
+    
+    public void quitGame(int currentScore)
+    {
+        this.questionsPanel.setVisible(false);
+        this.quitPanel.setVisible(true);
+        this.currentScore.setText("" + currentScore);
     }
     
     @Override
     public void update(Observable o, Object arg)
     {
        Data data = (Data) arg;
-        if(!data.loginFlag)
+       if(data.quitFlag)
+        {
+            this.quitGame(data.currentScore);
+        }
+       else if(!data.loginFlag)
         {
             this.usernameField.setText("");
             this.passwordField.setText("");
@@ -114,6 +126,7 @@ public class View2 extends JFrame implements Observer{
             this.startQuiz();
             this.setQuestion(data.qNum, data.question, data.option1, data.option2, data.option3, data.option4);
         }
+        
     }
     
 
@@ -186,6 +199,12 @@ public class View2 extends JFrame implements Observer{
         jLabel45 = new javax.swing.JLabel();
         questionName = new javax.swing.JLabel();
         quitButton = new javax.swing.JButton();
+        quitPanel = new javax.swing.JPanel();
+        questionNum1 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        currentScore = new javax.swing.JLabel();
+        questionName1 = new javax.swing.JLabel();
+        highestScore = new javax.swing.JLabel();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
@@ -731,6 +750,68 @@ public class View2 extends JFrame implements Observer{
 
         Parent.add(questionsPanel, "card3");
 
+        quitPanel.setBackground(new java.awt.Color(230, 236, 237));
+
+        questionNum1.setBackground(new java.awt.Color(187, 187, 187));
+        questionNum1.setFont(new java.awt.Font("AppleGothic", 1, 24)); // NOI18N
+        questionNum1.setForeground(new java.awt.Color(168, 173, 173));
+        questionNum1.setText("THANK YOU FOR PLAYING");
+
+        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/quitImage.jpg"))); // NOI18N
+
+        currentScore.setBackground(new java.awt.Color(168, 173, 173));
+        currentScore.setFont(new java.awt.Font("AppleGothic", 0, 48)); // NOI18N
+        currentScore.setForeground(new java.awt.Color(134, 138, 138));
+        currentScore.setText("01");
+
+        questionName1.setFont(new java.awt.Font("AppleGothic", 0, 18)); // NOI18N
+        questionName1.setForeground(new java.awt.Color(134, 138, 138));
+        questionName1.setText("YOUR SCORE WAS:");
+
+        highestScore.setFont(new java.awt.Font("AppleGothic", 0, 12)); // NOI18N
+        highestScore.setForeground(new java.awt.Color(134, 138, 138));
+        highestScore.setText("Highest score: 1042");
+
+        javax.swing.GroupLayout quitPanelLayout = new javax.swing.GroupLayout(quitPanel);
+        quitPanel.setLayout(quitPanelLayout);
+        quitPanelLayout.setHorizontalGroup(
+            quitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quitPanelLayout.createSequentialGroup()
+                .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(quitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(quitPanelLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(questionNum1)
+                        .addGap(0, 32, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quitPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(quitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(questionName1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quitPanelLayout.createSequentialGroup()
+                                .addComponent(currentScore)
+                                .addGap(57, 57, 57))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quitPanelLayout.createSequentialGroup()
+                                .addComponent(highestScore)
+                                .addGap(34, 34, 34)))
+                        .addGap(99, 99, 99))))
+        );
+        quitPanelLayout.setVerticalGroup(
+            quitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+            .addGroup(quitPanelLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(questionNum1)
+                .addGap(61, 61, 61)
+                .addComponent(questionName1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(currentScore)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(highestScore)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        Parent.add(quitPanel, "card3");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -786,6 +867,8 @@ public class View2 extends JFrame implements Observer{
     private javax.swing.JPanel Parent;
     private javax.swing.JTextField answerField;
     private javax.swing.JButton backButton;
+    private javax.swing.JLabel currentScore;
+    private javax.swing.JLabel highestScore;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -807,6 +890,7 @@ public class View2 extends JFrame implements Observer{
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
@@ -832,9 +916,12 @@ public class View2 extends JFrame implements Observer{
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordIcon;
     private javax.swing.JLabel questionName;
+    private javax.swing.JLabel questionName1;
     private javax.swing.JLabel questionNum;
+    private javax.swing.JLabel questionNum1;
     private javax.swing.JPanel questionsPanel;
     private javax.swing.JButton quitButton;
+    private javax.swing.JPanel quitPanel;
     private javax.swing.JTextField roundsField;
     private javax.swing.JPanel roundsPanel;
     private javax.swing.JButton startButton;
