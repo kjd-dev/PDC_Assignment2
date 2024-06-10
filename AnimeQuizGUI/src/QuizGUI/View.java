@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author james
  */
-public class View2 extends JFrame implements Observer{
+public class View extends JFrame implements Observer{
 
     /**
      * Creates new form View2
      */
-    public View2() 
+    public View() 
     {
         initComponents();
         this.setTitle("Anime Quiz");

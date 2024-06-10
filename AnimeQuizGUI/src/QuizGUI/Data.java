@@ -6,7 +6,7 @@
 package QuizGUI;
 
 /**
- *
+// *
  * @author tuitauofiti
  */
 
