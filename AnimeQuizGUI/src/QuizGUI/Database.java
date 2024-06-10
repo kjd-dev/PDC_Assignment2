@@ -65,9 +65,7 @@ public class Database
             {
                 String pass = rs.getString("Password");
                 /**
-                 * If the username exists in the USERS table, and the
-                 * password is correct, change the value of relating attributes
-                 * of data. Otherwise, keep loginFlag as false.
+                 * If the if the user exists and the password is correct, update their high score
                  */
                 
                 if (password.compareTo(pass) == 0) 
@@ -83,9 +81,8 @@ public class Database
             else
             {
                 /**
-                 * If the username does not exist in the USERS table, then
-                 * create a new account by using the inputted username and
-                 * password.
+                 * If the user does not exist in the USERS table, then
+                 * create a new account 
                  */
                 statement.executeUpdate("INSERT INTO USERS "
                         + "VALUES('" + username + "', '" + password + "', 0)");

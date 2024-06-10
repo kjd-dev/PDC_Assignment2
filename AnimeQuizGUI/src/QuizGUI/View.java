@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 public class View extends JFrame implements Observer{
 
     /**
-     * Creates new form View2
+     * Creates new form View
      */
     public View() 
     {
