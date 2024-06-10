@@ -22,10 +22,9 @@ import java.util.logging.Logger;
 public class Database 
 {
     Connection conn = null;
-    String url = "jdbc:derby://localhost:1527/Users";  //url of the DB host
-                                                       //jdbc:derby://localhost:1527/Users
-    String db_username = "JT";  //your DB username
-    String db_password = "2009";   //your DB password
+    String url = "jdbc:derby://localhost:1527/Users";  
+    String db_username = "JT";  
+    String db_password = "2009";   
     
     public void dbsetup() 
     {
@@ -65,8 +64,6 @@ public class Database
             if (rs.next()) 
             {
                 String pass = rs.getString("Password");
-                System.out.println("***" + pass);
-                System.out.println("User has been found!");
                 /**
                  * If the username exists in the USERS table, and the
                  * password is correct, change the value of relating attributes
@@ -102,7 +99,7 @@ public class Database
             ex.printStackTrace();
         }
         
-        return data; //Back to checkName() of Model.java.
+        return data; 
     }
 
     private boolean checkTableExisting(String newTableName) 

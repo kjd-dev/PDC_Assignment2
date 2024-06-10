@@ -13,17 +13,18 @@ package QuizGUI;
 public class Data 
 {
     //Flags.
-    boolean loginFlag = false; // Check if the user successfully login the system.
-    boolean quitFlag = false; // Check if the user quit the system.
-    boolean topicSelectFlag = false; // Check if the user has selected a topic.
-    boolean roundSelectFlag = false; // Check if the user has selected a round.
+    boolean loginFlag = false; // Check if the user successfully logged in
+    boolean quitFlag = false; // Check if the user wants to quit
+    boolean topicSelectFlag = false; // Check if the user has selected a topic
+    boolean roundSelectFlag = false; // Check if the user has selected a round
     boolean startFlag = false; // Check if the quiz has started.
-    boolean correct = false; // Check if the answer to the question is correct.
+    boolean correct = false; // Check if the answer to the question is correct
     
     // User's scores recorded.
     int currentScore = 0; // Store user's cumulative scores.
-    int highScore;
-    int streak = 0;
+    int highScore; //Store users highest score
+    int streak = 0; //Store users current correct answer streak
+    int bonusPoints = 0; //Store how many points they get from streak bonus
     
     // Questions List Stored.
     String topicChoice;
@@ -35,5 +36,5 @@ public class Data
     String answer;
     String difficulty;
     
-    int qNum = 1; // number of questions for the quiz based of difficulty.
+    int qNum = 0; // number of questions for the quiz based of difficulty.
 }

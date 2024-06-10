@@ -25,18 +25,19 @@ public class Questions
     
     public Questions() 
     {
-        this.questionAnswerMap = new HashMap<>();
+        this.questionAnswerMap = new HashMap<>(); //Initialises multiple hashmaps to store a questions data in order for view panel to retreive them
         this.questionOption1Map = new HashMap<>();
         this.questionOption2Map = new HashMap<>();
         this.questionOption3Map = new HashMap<>();
         this.questionOption4Map = new HashMap<>();
         this.questionDifficultyMap = new HashMap<>();
-        this.easyQuestions = new ArrayList<>();
+        this.easyQuestions = new ArrayList<>(); //Initialises arrays to seperate questions by difficulty
         this.mediumQuestions = new ArrayList<>();
         this.hardQuestions = new ArrayList<>();
         this.extremeQuestions = new ArrayList<>();
     }
     
+    //Puts questions into their appropriate array and hashmap
     public void addQuestion(String question, String option1, String option2, String option3, String option4, String answer, String difficulty) 
     {
         questionAnswerMap.put(question, answer);
@@ -75,6 +76,7 @@ public class Questions
         }
     }
     
+    //Randomises the questions lists and adds them to a single array based on how many rounds the user wants to play
     public List<String> getRandomQuestions(int rounds) 
     {
         List<String> selectedQuestions = new ArrayList<>();
@@ -118,6 +120,41 @@ public class Questions
         }
     }
     
+    //Sets randomQuestion array length according to selected rounds
+    public List<String> setQuestionAmount(String rounds)
+    {
+        List<String> randomQuestions = null;
+        
+        switch(rounds)
+        {
+            case "1":
+            {
+                randomQuestions = getRandomQuestions(10);
+                break;
+            }
+            case "2":
+            {
+                randomQuestions = getRandomQuestions(16);
+                break;
+            }
+            case "3":
+            {
+                randomQuestions = getRandomQuestions(22);
+                break;
+            }
+            case "4":
+            {
+                randomQuestions = getRandomQuestions(35);
+                break;
+            }
+            default:
+                break;
+        }
+            
+            return randomQuestions;
+    }
+    
+    //Get methods to return a questions data
     public String getOption1(String question)
     {
         return questionOption1Map.get(question);
@@ -146,6 +183,11 @@ public class Questions
     public String getAnswer(String question)
     {
         return questionAnswerMap.get(question);
+    }
+    
+    public int getSize()
+    {
+        return easyQuestions.size();
     }
     
     public int getPoints(String tier) 

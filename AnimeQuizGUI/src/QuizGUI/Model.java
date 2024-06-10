@@ -15,38 +15,26 @@ import java.util.Random;
 
 public class Model extends Observable
 {
-    public Database db;
+    public Database db; 
     public Questions q;
+    public fileHandler file;
     public Data data;
     public String username;
     
     public String topicChoice;
     public int roundsSelected;
     public List<String> randomQuestions;
-/*    
-    public String question;
-    public String option1;
-    public String option2;
-    public String option3;
-    public String option4;
-    public String answer;
-    public String difficulty;
-    
-    public List<String> easyQuestions;
-    public List<String> mediumQuestions;
-    public List<String> hardQuestions;
-    public List<String> extremeQuestions;
- */   
     
         
-    public Model()
+    public Model() //Inititalises database class, questions class and fileHandler class
     {
         this.db = new Database();
         this.db.dbsetup();
         this.q = new Questions();
+        this.file = new fileHandler();
     }
    
-    public void checkName(String username, String password)
+    public void checkName(String username, String password) //Pases input to database class to check if user exists in table
     {
         this.username = username;
         this.data = this.db.checkName(username, password);
@@ -54,122 +42,33 @@ public class Model extends Observable
         this.notifyObservers(this.data);
     }
     
-    public int generateNumber(int range)
-    {
-        Random generator = new Random();
-        int i = generator.nextInt(range);
-        return i;
-    }
-   
-    public void selectTopic(String topic)
+    //Passes user input to file reader to assign the appropriate questions according to selected topic
+    public void selectTopic(String topic) 
     {
         this.topicChoice = topic;
-        String fileName = "";
-        List<String> questionList = new ArrayList<>();
-        
-        switch(topic)
-        {
-            case "1":
-                fileName = "./anime_questions/AOT_questions.txt";
-                break;
-            case "2":
-                fileName = "./anime_questions/Bleach_questions.txt";
-                break;
-            case "3":
-                fileName = "./anime_questions/DS_questions.txt";
-                break;
-            case "4":
-                fileName = "./anime_questions/DB_questions.txt";
-                break;
-            case "5":
-                fileName = "./anime_questions/HxH_questions.txt";
-                break;
-            case "6":
-                fileName = "./anime_questions/JJK_questions.txt";
-                break;
-            case "7":
-                fileName = "./anime_questions/Naruto_questions.txt";
-                break;
-            case "8":
-                fileName = "./anime_questions/OP_questions.txt";
-                break;
-            case "9":
-                fileName = "./anime_questions/OPM_questions.txt";
-                break;
-            case "10":
-                fileName = "./anime_questions/Tensura_questions.txt";
-                break;
-            default:
-                break;
-        }
-        
-        try
-        {
-            BufferedReader br = new BufferedReader(new FileReader(fileName));
-            String line = "";
-            
-            while((line = br.readLine()) != null)
-            {
-                String[] parts = line.split("\\|");
-                String question = parts[0];
-                    String option1 = parts[1];
-                    String option2 = parts[2];
-                    String option3 = parts[3];
-                    String option4 = parts[4];
-                    String answer = parts[5];
-                    String difficulty = parts[6];
-                    System.out.println(question);
-                    System.out.println(option1);
-                    System.out.println(option2);
-                    System.out.println(option3);
-                    System.out.println(option4);
-                    System.out.println(difficulty);
-                    q.addQuestion(question, option1, option2, option3, option4, answer, difficulty);
-                    System.out.println("Added.\n");
-            }
-            
-            br.close();
-        }
-        catch(IOException ex)
-        {
-            System.err.println("IOException Error: " + ex.getMessage());
-        }
-        
+        file.readQuestions(topic);
+        this.q = file.getQuestions();
         this.data.topicSelectFlag = true;
         this.setChanged();
         this.notifyObservers(this.data);
     }
     
+    //Creates a new question list with randomly selected questions, the list length is equal to selected roudns
     public void selectRounds(String rounds)
     {
-        this.roundsSelected = Integer.parseInt(rounds);        
-        
-        switch(rounds)
+        randomQuestions = q.setQuestionAmount(rounds);
+        setQuestions();
+    }
+    
+    //Method to set the question data in order for the view panel to update correctly
+    private void setQuestions()
+    {
+        if(this.data.qNum == randomQuestions.size()) //If amount of rounds selected is reached, quit game automatically
         {
-            case "1":
-            {
-                randomQuestions = q.getRandomQuestions(10);
-                break;
-            }
-            case "2":
-            {
-                randomQuestions = q.getRandomQuestions(16);
-                break;
-            }
-            case "3":
-            {
-                randomQuestions = q.getRandomQuestions(22);
-                break;
-            }
-            case "4":
-            {
-                randomQuestions = q.getRandomQuestions(35);
-                break;
-            }
+            quitGame();
         }
-        
-        String question = randomQuestions.get(0);
-//        
+        else {
+        String question = randomQuestions.get(this.data.qNum);
         this.data.question = question;
         this.data.option1 = q.getOption1(question);
         this.data.option2 = q.getOption2(question);
@@ -181,9 +80,10 @@ public class Model extends Observable
         this.data.startFlag = true;
         this.setChanged();
         this.notifyObservers(this.data);
+        }
     }
     
-    public boolean checkAnswer(String uAnswer)
+    public boolean checkAnswer(String uAnswer) //When next button is clicked, check the users answer and set relevant information
     {
         
         
@@ -198,54 +98,23 @@ public class Model extends Observable
             data.streak = 0;
             data.correct = false;
         }
-//            else 
-//            {
-//                answer = q.getAnswer(question);
-//                if(streak >= 3)
-//                {
-//                    System.out.println("Incorrect! The correct answer was " + answer + ".");
-//                    System.out.println("STREAK BONUS LOST\n");
-//                }
-//                else
-//                {
-//                    System.out.println("Incorrect! The correct answer was " + answer + ".\n");
-//                }
-//                streak = 0;
-//            }
+
         this.data.qNum++;
-        if(this.data.qNum - 1 == randomQuestions.size())
-        {
-            quitGame();
-        }
-        else
-        {
-            String question = randomQuestions.get(this.data.qNum - 1);  
-            this.data.question = question;
-            this.data.option1 = q.getOption1(question);
-            this.data.option2 = q.getOption2(question);
-            this.data.option3 = q.getOption3(question);
-            this.data.option4 = q.getOption4(question);
-            this.data.answer = q.getAnswer(question);
-            this.data.difficulty = q.getDifficulty(question);
-            this.setChanged();
-            this.notifyObservers(this.data);
-        }
+        setQuestions();
         
         return data.correct;
     }
     
-    private void increaseScore(String tier, int streak) 
+    private void increaseScore(String tier, int streak) //Increase users current score, if they have a streak assign bonus points
     {
         int points = q.getPoints(tier);
         double multiplier = 1d;
         if(streak >= 3)
         {
             multiplier = 1 + ((streak / 10d)*streak);
-//            System.out.println(streak + " STREAK BONUS ");
         }
-        int newPoints = points *= multiplier;
-//        System.out.println("+" + (newPoints) + "\n");
-        this.data.currentScore += newPoints;
+        data.bonusPoints = points *= multiplier;
+        this.data.currentScore += data.bonusPoints;
     }
     
     public boolean isStreak()
@@ -255,8 +124,12 @@ public class Model extends Observable
     
     public int getStreak()
     {
-        System.out.println(this.data.streak);
         return this.data.streak;
+    }
+    
+    public int getPoints()
+    {
+        return this.data.bonusPoints;
     }
     
     public void goBack()
@@ -266,6 +139,7 @@ public class Model extends Observable
         this.notifyObservers(this.data);
     }
     
+    //Uses database to insert a users score if it is higher than their highest score, then flags quitgame
     public void quitGame()
     {
         this.db.quitGame(this.data.currentScore, this.data.highScore, this.username);

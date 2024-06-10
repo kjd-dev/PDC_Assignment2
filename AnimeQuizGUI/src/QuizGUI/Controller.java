@@ -19,6 +19,7 @@ public class Controller implements ActionListener {
         this.view.addActionListener(this);
     }
     
+    //Reads what button was pressed and assigned the appropriate action
     @Override
     public void actionPerformed(ActionEvent e)
     {
@@ -61,6 +62,7 @@ public class Controller implements ActionListener {
         model.checkName(username, password);
     }
     
+    //Check methods to ensure users input is a valid entry, then passes input to the model class
     public void checkSelectTopic()
     {
         String topic = this.view.getTopic();
@@ -114,7 +116,8 @@ public class Controller implements ActionListener {
         if(model.isStreak())
         {
             int streak = model.getStreak();
-            view.showStreak(streak);
+            int points = model.getPoints();
+            view.showStreak(streak, points);
         }
         else
         {
@@ -135,25 +138,11 @@ public class Controller implements ActionListener {
     
     public boolean inBoundsTopic(int number)
     {
-        if(number <= 10 && number > 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return number <= 10 && number > 0;
     }
     
     public boolean inBoundsRounds(int number)
     {
-        if(number <= 4 && number > 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return number <= 4 && number > 0;
     }
 }
