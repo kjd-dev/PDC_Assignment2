@@ -158,8 +158,9 @@ public class View2 extends JFrame implements Observer{
         }
        else if(!data.loginFlag)
         {
-            this.usernameField.setText("");
-            this.passwordField.setText("");
+            this.usernameField.setText("Username");
+            this.passwordField.setText("Password");
+            popError("Invalid credentials");
         }
         else if (!data.topicSelectFlag)
         {
